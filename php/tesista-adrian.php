@@ -9,7 +9,8 @@ class Tesista {
  	public static function getTesista($matricula) {
 		if (null == self::$listaTesista) { 
 			require_once 'bd.php'; //incluye la conexion de la base de datos
-			$pdo = BaseDeDatos::conectar();
+            $pdo = BaseDeDatos::conectar();
+            //aqui va la consula
 			$sql = "SELECT t.folio AS FOLIO, 
                            t.nombre AS NOMBRE_TESIS, 
                            t.tesista1 AS TESISTA_1, 
