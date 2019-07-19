@@ -3,14 +3,14 @@
   if ($_SESSION['login'] == '') {
     header("location: index.php");
   }
-	if ( empty($_POST) ) {
+  if ( empty($_POST) ) {
     header("Location: inicio.php");
   }
   $usuario = $_SESSION['login'];
   require_once 'php/bd.php';
   
   /* Datos generales */
-	$folio = $_POST['folio'];
+  $folio = $_POST['folio'];
   $nombre = $_POST['nombre'];
   $fecha = $_POST['fecha'];
   
@@ -71,9 +71,7 @@
     die ("Error al copiar el archivo. Código: " . $_FILES["archivo"]["error"]);
   }
 
-  /***************************************************************************/
   /****************************** INSERTAR DATOS *****************************/
-  /***************************************************************************/
 
   /* INTEGRIDAD REFERENCIAL: Guardar primero los datos de tesistas */
   $pdo = BaseDeDatos::conectar();

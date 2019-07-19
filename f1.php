@@ -213,7 +213,7 @@
         </div>
       </div>
     </fieldset>
-    <!------------------------- TESISTAS ------------------------------------
+    <!-- ------------------------ TESISTAS ------------------------------------
     <div class="form-group row">
       <label class="col-sm-3 col-form-label font-weight-bold">Número de Tesistas</label>
       <div class="form-check form-check-inline">
@@ -243,7 +243,7 @@
       <div class="tab-pane fade" id="tesista2" role="tabpanel" aria-labelledby="tesista2-tab">
         DATOS DEL TESISTA 2
       </div>
-      -------------------------------------------------------------------->
+      --------------------------------------------------------------------- -->
     </div>
       
     <div class="col-sm-4">
@@ -308,17 +308,6 @@
       document.getElementById("carrera2").required   = true;
     }
   }
-
-  /* Mostrar/ocultar pestaña del tesista 2 
-  function mostrar(num) {
-    if (num == "1") {
-      document.getElementById("areaTesista2").style.display = "none";
-      // mostrar la pestaña del tesista 1
-      // limpiar los campos del tesista 2
-    } else if(num=="2") {
-      document.getElementById("areaTesista2").style.display = "block";
-    }
-  }*/
 
   /* Validar campos del formulario */
   function validarFormulario() {
