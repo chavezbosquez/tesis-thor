@@ -44,7 +44,7 @@
                 Seguimiento de tesis
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><a>Buscar por matrícula</a></li>
+                <li class="list-group-item"><a href="#" class="show-mati">Buscar por matrícula</a></li>
                 <li class="list-group-item"><a href="ver-tesis.php">Tesis en proceso</a></li>
                 <li class="list-group-item"><a>Estadísticas</a></li>
               </ul>
@@ -151,8 +151,35 @@
     </div>
   </main>
 
+    <script>
+        $(document).on("click", ".show-mati", function(e) {
+            bootbox.prompt({ 
+                size: "large",
+                title: "¿Cuál es la matrícula del tesista?",
+                callback: function(result){   
+                    if(result != null){                
+                        location.href = "php/tesista-adrian.php?matricula="+result+"";
+                    }                
+                }
+            });
+        });
+    </script>
 <!-- Pie de página -->
 <?php
   include_once "php/footer.php";
   }
+
+  $error = "1";
+  $matricula = "012345";
+  if ( isset($_GET['error']) && isset($_GET['matricula'])) {
+    $error = $_GET['error'];
+    $matricula = $_GET['matricula'];
+    if($error == "1" && (!empty($matricula))){
+      echo ('<script> 
+                 bootbox.alert("¡No existe tesis asociada a la matrícula '.$matricula.'!"); 
+            </script>');
+    }
+  }
+
 ?>
+
