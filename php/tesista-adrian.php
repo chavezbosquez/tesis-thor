@@ -43,17 +43,17 @@ $listaTesista = Tesista::getTesista($matricula);
                     if($ESTATUS == "F1"){
                         header('Location: ../f2.php?folio='.$FOLIO.'&sender=inicio&label=Inicio');
                     } else if ($ESTATUS == "F2"){
-                        //ira F3
+                        //ir a F3
                     } else if ($ESTATUS == "F3"){
-                        //ira F4
+                        //ir a F4
                     } else if ($ESTATUS == "F4"){
-                        //ira F5
+                        //ir a F5
                     } else if ($ESTATUS == "F5"){
-                        //ira F6
+                        //ir a F6
                     } else if ($ESTATUS == "F6"){
-                        //ira F7
+                        //ir a F7
                     } else if ($ESTATUS == "F7"){
-                        //ira F8
+                        //ir a F8
                     }
                 
             
