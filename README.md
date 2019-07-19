@@ -10,7 +10,7 @@ Equipo:
 * Gaby
 * Heidy
 * Adanowsky
-* Adrián
+* Adrian
 * Fred
 * Eduardo
 * Gerardo
