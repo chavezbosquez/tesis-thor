@@ -39,22 +39,23 @@ $listaTesista = Tesista::getTesista($matricula);
                 $pagina = '';
                 extract($tesista);
 
-                    if($ESTATUS == "F1")
-                        $pagina = 'f2.php';
-                    else if ($ESTATUS == "F2")
-                        $pagina = 'f3.php';
-                    else if ($ESTATUS == "F3")
-                        $pagina = 'f4.php';
-                    else if ($ESTATUS == "F4")
-                        $pagina = 'f5.php';
-                    else if ($ESTATUS == "F5")
-                        $pagina = 'f6.php';
-                    else if ($ESTATUS == "F6")
-                        $pagina = 'f7.php';
-                    else if ($ESTATUS == "F7")
-                        $pagina = 'f8.php';
+                    if($ESTATUS == "F1"){
+                        header('Location: ../f2.php?folio='.$FOLIO.'&sender=inicio&label=Inicio');
+                    } else if ($ESTATUS == "F2"){
+                        //ira F3
+                    } else if ($ESTATUS == "F3"){
+                        //ira F4
+                    } else if ($ESTATUS == "F4"){
+                        //ira F5
+                    } else if ($ESTATUS == "F5"){
+                        //ira F6
+                    } else if ($ESTATUS == "F6"){
+                        //ira F7
+                    } else if ($ESTATUS == "F7"){
+                        //ira F8
+                    }
                 
-            header('Location: ../'.$pagina.'');
+            
                 break;
          }
             
