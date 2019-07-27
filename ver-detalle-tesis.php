@@ -87,13 +87,28 @@
 
     /* Extraer la Comisión revisora: Todos los Fs excepto el F1 deben tener Comisión revisora asignada */
     //$listaComision = array();
+    $hayComision = false;
     if ($estatus != "F1") { /* if ( isset($comision_revisora1) ) */
+      $hayComision = true;
       $sql = "SELECT revisor1,revisor2,revisor3 FROM tesis WHERE folio LIKE '{$folio}' LIMIT 1";
       $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
       $registro5 = $cons->fetch();
       $elRevisor1 = Profesor::getDatosProfesor($registro5['revisor1']);
       $elRevisor2 = Profesor::getDatosProfesor($registro5['revisor2']);
       $elRevisor3 = Profesor::getDatosProfesor($registro5['revisor3']);
+    }
+
+    $hayJurado = false;
+    if ($estatus == "F7" || $estatus == "F8" || $estatus == "F8-A" || $estatus == "FF") {
+      $hayJurado = true;
+      $sql = "SELECT jurado1,jurado2,jurado3,jurado4,jurado5 FROM tesis WHERE folio LIKE '{$folio}' LIMIT 1";
+      $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
+      $registro6 = $cons->fetch();
+      $elJurado1 = Profesor::getDatosProfesor($registro6['jurado1']);
+      $elJurado2 = Profesor::getDatosProfesor($registro6['jurado2']);
+      $elJurado3 = Profesor::getDatosProfesor($registro6['jurado3']);
+      $elJurado4 = Profesor::getDatosProfesor($registro6['jurado4']);
+      $elJurado5 = Profesor::getDatosProfesor($registro6['jurado5']);
     }
 
     BaseDeDatos::desconectar();
@@ -187,6 +202,10 @@
                         echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
                                 <i class='fas fa-male'></i>&nbsp;Oficio {$tipoDocumento}
                               </a>";
+                      } else if ( substr($tipoDocumento, 0, 3) == "JUR" ) {
+                        echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
+                                <i class='fas fa-address-book'></i>&nbsp;Oficio {$tipoDocumento}
+                              </a>";
                       } else if ( substr($tipoDocumento, 0, 2) == "OF" ) {
                         echo "&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
                                 <i class='fas fa-pdf'></i>&nbsp;Oficio {$tipoDocumento}
@@ -204,8 +223,8 @@
         </tbody>
       </table>
       <!-- COMISIÓN REVISORA -->
-      <?php if ($estatus != "F1") { ?> <!-- Después del F1 siempre hay Comisión Revisora -->
-        <h5>Comisión revisora</h5>
+      <?php if ($hayComision) { ?>
+        <h5 class="text-center">Comisión revisora</h5>
         <table class="table table-striped table-bordered table-hover table-condensed">
           <tbody>
             <tr>
@@ -223,6 +242,41 @@
                 <strong><?php echo $elRevisor3['nombre']; ?></strong>
                 <br>
                 <?php echo $elRevisor3['cuerpoAcademico']; ?>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <?php } ?>
+      <!-- JURADO -->
+      <?php if ($hayJurado) { ?>
+        <h5 class="text-center">Jurado</h5>
+        <table class="table table-striped table-bordered table-hover table-condensed">
+          <tbody>
+            <tr>
+              <td>
+                <strong><?php echo $elJurado1['nombre']; ?></strong>
+                <br>
+                <?php echo $elJurado1['cuerpoAcademico']; ?>
+              </td>
+              <td>
+                <strong><?php echo $elJurado2['nombre']; ?></strong>
+                <br>
+                <?php echo $elJurado2['cuerpoAcademico']; ?>
+              </td>
+              <td>
+                <strong><?php echo $elJurado3['nombre']; ?></strong>
+                <br>
+                <?php echo $elJurado3['cuerpoAcademico']; ?>
+              </td>
+              <td>
+                <strong><?php echo $elJurado4['nombre']; ?></strong>
+                <br>
+                <?php echo $elJurado4['cuerpoAcademico']; ?>
+              </td>
+              <td>
+                <strong><?php echo $elJurado5['nombre']; ?></strong>
+                <br>
+                <?php echo $elJurado5['cuerpoAcademico']; ?>
               </td>
             </tr>
           </tbody>

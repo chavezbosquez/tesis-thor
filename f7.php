@@ -40,10 +40,10 @@
       Datos de la tesis
     </div>
     <div class="form-group row">
-      <div class="col-sm-2 text-right">
+      <div class="col-sm-3 text-right">
         <i class="fas fa-info-circle"></i>
       </div>
-      <div class="col-sm-10">
+      <div class="col-sm-9">
         <?php echo "<a href='#' onclick='mostrarDetalles(\"{$folio}\")'>Ver detalles de la tesis</a>" ?>
       </div>
     </div>

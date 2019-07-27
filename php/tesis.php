@@ -72,6 +72,17 @@ class Tesis {
     return($registro);
   }
 
+  /* Útil para el F8 */
+  public static function getDatosF8($folio) {
+		require_once 'bd.php';
+		$pdo = BaseDeDatos::conectar();
+    $sql = "SELECT nombre,jurado1,jurado2,jurado3,jurado4,jurado5,estatus FROM tesis WHERE folio='{$folio}' LIMIT 1";
+    $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
+		$registro = $cons->fetch();
+		BaseDeDatos::desconectar();
+    return($registro);
+  }
+
   public static function getTablaAnteproyectos() {
     require_once 'php/bd.php';
     $pdo = BaseDeDatos::conectar();
