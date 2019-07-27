@@ -66,7 +66,7 @@
                       break;
             case "F8-A": $fSiguiente = "f8";
                       break;
-            case "F8": $fSiguiente = "FF";
+            case "F8": $fSiguiente = "ff";
                       break;
           }
           echo "<a href='{$fSiguiente}.php?folio={$folio}&sender=ver-tesis&label=Tesis' class='btn btn-primary'>

@@ -16,12 +16,14 @@
 <?php
     $folio = $_GET['folio'];
     $usuario = $_SESSION['login'];
+    $admin   = $_SESSION['admin'];
     $tituloPagina = "Anteproyecto {$folio}";
 
     require_once 'php/bd.php';
     require_once 'php/tesis.php';
     require_once 'php/profesor.php';
     require_once 'php/tesista.php';
+    require_once 'php/bitacora.php';
 
     /* Consultar TODOS los datos de la tesis */
     /*$pdo = BaseDeDatos::conectar();
@@ -46,25 +48,12 @@
     /* ¿Hay tesista 2  */
     $hayTesista2 = isset($tesista2);
     if ( $hayTesista2 ) {
-      /*$sql = "SELECT CONCAT(nombre, ' ', apellidos) AS nombreTesista2, carrera AS carreraTesista2
-                FROM tesista WHERE matricula LIKE '{$tesista2}'";
-      $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
-      $registro2 = $cons->fetch();
-      extract($registro2);*/
       $elTesista = Tesista::getDatos($tesista2);
     }
 
     /* Hay codirector */
     $hayCodirector = isset($codirector);
     if ($hayCodirector) {
-      /*$sql = "SELECT CONCAT(profesor.nombre, ' ', apellidos) AS nombreCodirector, cuerpo_academico.nombre as nombreCA2
-                  FROM profesor,cuerpo_academico
-                  WHERE profesor.clave LIKE '{$codirector}' 
-                      AND profesor.cuerpo_academico=cuerpo_academico.clave
-                      LIMIT 1";
-      $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
-      $registro3 = $cons->fetch();
-      extract($registro3);*/
       $elCodirector = Profesor::getDatosProfesor($codirector);
     }
 
@@ -86,9 +75,8 @@
     }
 
     /* Extraer la Comisión revisora: Todos los Fs excepto el F1 deben tener Comisión revisora asignada */
-    //$listaComision = array();
     $hayComision = false;
-    if ($estatus != "F1") { /* if ( isset($comision_revisora1) ) */
+    if ($estatus != "F1") { /* if ( isset($revisor1) ) */
       $hayComision = true;
       $sql = "SELECT revisor1,revisor2,revisor3 FROM tesis WHERE folio LIKE '{$folio}' LIMIT 1";
       $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
@@ -99,7 +87,7 @@
     }
 
     $hayJurado = false;
-    if ($estatus == "F7" || $estatus == "F8" || $estatus == "F8-A" || $estatus == "FF") {
+    if ($estatus == "F7" || $estatus == "F8" || $estatus == "F8-A" || $estatus == "FF") { /* if ( isset($jurado1) ) */
       $hayJurado = true;
       $sql = "SELECT jurado1,jurado2,jurado3,jurado4,jurado5 FROM tesis WHERE folio LIKE '{$folio}' LIMIT 1";
       $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
@@ -111,6 +99,11 @@
       $elJurado5 = Profesor::getDatosProfesor($registro6['jurado5']);
     }
 
+    /* Mostrar la bitácora (solo al administrador) */
+    if ($admin) {
+      $log = Bitacora::getLog($folio);
+    }
+
     BaseDeDatos::desconectar();
     
 ?>
@@ -120,7 +113,7 @@
       <tbody>
         <tr>
           <td class="text-right">Fecha</td>
-          <td class="font-weight-bold"><?php echo date("d/m/y",strtotime($fecha)); ?></td>
+          <td class="font-weight-bold"><?php echo date("d/m/Y",strtotime($fecha)); ?></td>
         </tr>
         <tr>
           <td class="text-right">Folio</td>
@@ -194,7 +187,12 @@
                 <?php
                   foreach ($listaArchivos as $archivo) {
                     extract($archivo);
-                      if ( substr($tipoDocumento, 0, 1) == "F" ) {
+                    if ( substr($tipoDocumento, 0, 2) == "FF" ) {
+                      echo "<hr>";
+                      echo "<a href='docs/{$nombreArchivo}'>
+                              <i class='fas fa-check-circle'></i>&nbsp;Liberación del Jurado
+                            </a>";
+                    } else if ( substr($tipoDocumento, 0, 1) == "F" ) {
                         echo "<a href='docs/{$nombreArchivo}'>
                                 <i class='far fa-file-pdf'></i>&nbsp;Formato {$tipoDocumento}
                               </a>";
@@ -213,6 +211,10 @@
                       } else if ( substr($tipoDocumento, 0, 3) == "DIR" ) {
                         echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
                                 <i class='fas fa-user-circle'></i>&nbsp;Oficio {$tipoDocumento}
+                              </a>";
+                      } else if ( substr($tipoDocumento, 0, 3) == "IMP" ) {
+                        echo "<a href='docs/{$nombreArchivo}'>
+                                <i class='far fa-thumbs-up'></i>&nbsp;Autorización de Impresión
                               </a>";
                       }
                       echo "<br>";
@@ -281,6 +283,34 @@
             </tr>
           </tbody>
         </table>
+      <?php } ?>
+      <?php if ($admin) { ?>
+      <p>
+        <br>
+      </p>
+      <h4>Bitácora</h4>
+      <table class="table table-striped table-bordered table-hover table-condensed">
+        <thead class="bg-dark text-white">
+          <tr>
+            <th class="text-center">Operación</th>
+            <th class="text-center">Fecha</th>
+            <th class="text-center">Usuario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+            foreach ($log as $evento) {
+              //extract($evento);
+              echo "<tr>";
+              echo "<td>{$evento['operacion']}</td>";
+              $fecha = date("d/m/Y",strtotime($evento['fecha']));
+              echo "<td>{$fecha}</td>";
+              echo "<td>{$evento['usuario']}</td>";
+              echo "</tr>";
+            }
+          ?>
+        </tbody>
+      </table>
       <?php } ?>
     </main>
   </body>

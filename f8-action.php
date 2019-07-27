@@ -77,7 +77,7 @@
     Archivo::cargarArchivo("archivo6",$directorio);
     
     /****************************** INSERTAR DATOS *****************************/
-    /* Guardar datos del F3 */
+    /* Guardar datos del F8 */
     $sql = "UPDATE tesis SET estatus='F8' WHERE folio='{$folio}'";
     $cons = $pdo->prepare($sql);
     $cons->execute();

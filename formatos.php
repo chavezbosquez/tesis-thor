@@ -5,18 +5,20 @@
 ?>
 <!-- Encabezado de página -->
 
-  <main role="main" class="card container container-fluid body-content rounded p-4">
-    <div class="clearfix">
-          <h2 class="float-left">
-          <nav aria-label="breadcrumb">
-              <ol class="breadcrumb" style="background-color: white; padding: 0; margin:0">
-                  <li class="breadcrumb-item"><a href="index.php"><i class="fas fa-hammer"></i></a></li>
-                  <li class="breadcrumb-item" aria-current="page">Formatos</li>
-                </ol>
-          </nav>
-          </h2>
-        </div>
-        <hr>
+<main role="main" class="card container container-fluid body-content rounded p-4">
+  <div class="clearfix">
+    <h2 class="float-left">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" style="background-color: white; padding: 0; margin:0">
+          <li class="breadcrumb-item">
+            <a href="index.php"><i class="fas fa-hammer"></i></a>
+          </li>
+          <li class="breadcrumb-item" aria-current="page">Formatos</li>
+        </ol>
+      </nav>
+    </h2>
+  </div>
+  <hr>
   <div class="card">
   <div class="card-header">
     Formatos de tesis
