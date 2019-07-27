@@ -136,7 +136,7 @@
       </div>
     </div>
     </div>
-    <div class="col-sm-4" <?php if ($laTesis['estatus'] == "F2") echo "style='display: none;'"; ?>>
+    <div class="col-sm-4">
       <div class=" row">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
