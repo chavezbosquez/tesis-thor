@@ -112,9 +112,17 @@
   <input type="hidden" id="estatus" name="estatus" value ="<?php echo $laTesis['estatus']; ?>">
   <div class="row mt-2">
     <div class="col-sm-8">
-      <div class="alert alert-info font-weight-bold" role="alert">
-        2. Respuesta de la Comisión Revisora
+    <?php if ($laTesis['estatus'] == "F2") { ?>
+      <div class="alert alert-danger" role="alert">
+        <strong>2. Respuesta de la Comisión Revisora</strong>
+        <br>
+        Primero debes guardar los oficios de asignación de la Comisión Revisora
       </div>
+    <?php } else { ?>
+      <div class="alert alert-info font-weight-bold" role="alert">
+        Respuesta de la Comisión Revisora
+      </div>
+    <?php } ?>
       <div class="form-group row">
         <label for="archivo4" class="font-weight-bold col-sm-4 col-form-label">Formato F3</label>
         <div class="col-sm-8">
@@ -128,7 +136,7 @@
       </div>
     </div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-4" <?php if ($laTesis['estatus'] == "F2") echo "style='display: none;'"; ?>>
       <div class=" row">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
@@ -155,7 +163,7 @@
   function validarF3() {
     <?php
       if ($laTesis['estatus'] == "F2") {
-        echo "bootbox.alert('<h3>Error</h3>Primero debes capturar los oficios de asignación de la Comisión Revisora respectivamente firmados');";
+        echo "bootbox.alert('<h3>Error</h3>Primero debes capturar los oficios de asignación de la Comisión Revisora respectivamente firmados.');";
         echo "return false;";
       }
     ?>
