@@ -8,7 +8,10 @@
     }
     $usuario = $_SESSION['login'];
     $folio  = $_GET['folio'];
-    $sender = $_GET['sender'] . '.php';
+    if ( isset($_GET['sender']) ) {
+      $sender = $_GET['sender'] . '.php';
+      $label  = $_GET['label'];
+    }
     $tituloPagina = "F6 - Liberación de la tesis";
     
     include_once "php/header.php";

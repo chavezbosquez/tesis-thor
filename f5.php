@@ -8,7 +8,10 @@
     }
     $usuario = $_SESSION['login'];
     $folio  = $_GET['folio'];
-    $sender = $_GET['sender'] . '.php';
+    if ( isset($_GET['sender']) ) {
+      $sender = $_GET['sender'] . '.php';
+      $label  = $_GET['label'];
+    }
     $tituloPagina = "F5 - Asignación de calificaciones";
     
     include_once "php/header.php";

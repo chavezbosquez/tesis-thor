@@ -11,6 +11,12 @@ function mostrarDetalles(folio, tipo) {
     size: "large",
     message: '<object class="preview-pdf-file" type="text/html" data="ver-detalle-tesis.php?folio=' + folio + '"></object>',
     className : "preview-pdf-modal",
+    buttons: {
+      ok: {
+          label: 'Cerrar',
+          className: 'btn-info'
+      }
+    },
     onEscape: function() {}	        
   });
   /*$('.preview-pdf-modal .modal-content')

@@ -57,7 +57,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><a href="formatos.php">Ver formatos</a></li>
-          <li class="list-group-item"><a href="ver-profesores.php?sender=inicio">Listado de profesores</a></li>
+          <li class="list-group-item"><a href="ver-profesores.php">Listado de profesores</a></li>
         </ul>
       </div>
     </div>
@@ -79,7 +79,7 @@
     <br>
   </p>
   <div class="col-sm-12">
-    <span class="lead">Tesis concluídas</span>
+    <span class="lead"><strong>Tesis concluídas</strong></span>
     <table class="table table-striped table-bordered table-hover table-condensed table-sm">
       <thead class="bg-dark text-white">
         <tr>
@@ -116,11 +116,6 @@
             }
             $cuerpoAcademico = CuerpoAcademico::getCuerpoAcademico($director);
             echo "<td class='text-center'>{$cuerpoAcademico}</td>";
-            /*echo "<td>
-                    <a href='#' onclick='mostrarDetalles(\"{$folio}\")' title='Ver detalle de la tesis'>
-                      <i class='fas fa-info-circle'></i>
-                    </a>
-                  </td>";*/
             echo "</td>";
             echo "</tr>";
           }
@@ -133,12 +128,21 @@
 
 <script>
   $(document).on("click", "#show-mati", function(e) {
-    bootbox.prompt({ 
+    bootbox.prompt({
       size: "small",
       title: "Matrícula del tesista",
+      buttons: {
+        confirm: {
+            label: 'Buscar',
+            className: 'btn-info'
+        },
+        cancel: {
+            label: 'Cancelar'
+        }
+      },
       callback: function(result) {
-        if(result != null) {
-          location.href = "php/tesista-adrian.php?matricula='" + result + "'";
+        if (result != null) {
+          location.href = "php/tesista-adrian.php?matricula=" + result;
         }
       }
     });
@@ -149,17 +153,21 @@
 
 <!-- Pie de página -->
 <?php
-  include_once "php/footer.php";
-  }
-  $error = "1";
-  $matricula = "012345";
-  if ( isset($_GET['error']) && isset($_GET['matricula'])) {
-    $error = $_GET['error'];
-    $matricula = $_GET['matricula'];
-    if($error == "1" && (!empty($matricula))){
-      echo ('<script> 
-                bootbox.alert("¡No existe tesis asociada a la matrícula '.$matricula.'!"); 
-            </script>');
+    include_once "php/footer.php";
+    /* Error al consultar una matrícula */
+    if ( isset($_GET['error']) ) {
+      $error = $_GET['error'];
+      if ($error == "1") {  /* No existe matrícula */
+        $matricula = $_GET['matricula'];
+        echo "<script> 
+                  bootbox.alert('¡No existe tesis asociada a la matrícula <strong>{$matricula}</strong>!'); 
+              </script>";
+      } else if ($error == "2") { /* Tesis concluída */
+        $tesis = htmlspecialchars($_GET['tesis']);
+        echo "<script> 
+                  bootbox.alert('La tesis <strong>{$tesis}</strong> ha concluído. Revise los detalles de la tesis en la tabla de Tesis concluídas.');
+              </script>";
+      }
     }
   }
 ?>

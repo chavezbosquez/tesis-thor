@@ -27,5 +27,15 @@ class Tesista {
     return($registro);
 	}
 
+	public static function getFolioTesis($matricula) {
+		require_once 'bd.php';
+		$pdo = BaseDeDatos::conectar();
+    $sql = "SELECT folio,nombre,estatus FROM tesis WHERE tesista1 LIKE '{$matricula}' OR tesista2 LIKE '{$matricula}' LIMIT 1";
+		$cons = $pdo->query($sql, PDO::FETCH_ASSOC);
+		$registro = $cons->fetch();
+		BaseDeDatos::desconectar();
+    return($registro);
+	}
+
 }
 ?>

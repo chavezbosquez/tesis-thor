@@ -29,6 +29,17 @@ form label {
   text-align: right;
 }
 
+/* Celda botones de la tabla */
+.table-fit {
+  white-space: nowrap;
+  width: 1%;
+}
+
+/* Enlaces de la página de inicio */
+.list-group-item a {
+  color:midnightblue;
+}
+
 /* Estilos de dialogos.js */
 .preview-pdf-modal .modal-body{
   width:100%;

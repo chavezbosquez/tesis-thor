@@ -5,6 +5,7 @@
   } else {
     $usuario = $_SESSION['login'];
     $tituloPagina = "F1 - Nuevo anteproyecto";
+    
     include_once "php/header.php";
 
     /* Lista de Cuerpos académicos */
@@ -18,7 +19,7 @@
 <!-- Encabezado de página -->
 
 <?php include_once "php/header2.php"; ?>
-  
+
 <form name="f1" method="post" action="f1-action.php" enctype="multipart/form-data" onsubmit="return validarFormulario();">
   <div class="row">
     <div class="col-sm-8">
@@ -302,10 +303,10 @@
       document.getElementById("carrera2").required   = true;
     } else {
       areaTesista2.style.display = "none";
-      document.getElementById("matricula2").required = true;
-      document.getElementById("nombre2").required    = true;
-      document.getElementById("apellidos2").required = true;
-      document.getElementById("carrera2").required   = true;
+      document.getElementById("matricula2").required = false;
+      document.getElementById("nombre2").required    = false;
+      document.getElementById("apellidos2").required = false;
+      document.getElementById("carrera2").required   = false;
     }
   }
 

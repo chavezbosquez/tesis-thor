@@ -78,7 +78,7 @@
           </p>
           <div class="row">
             <div class="col-2 mx-auto"></div>
-            <a class="btn btn-warning col-3 mx-auto" href="ver-profesores.php?sender=index">
+            <a class="btn btn-warning col-3 mx-auto" href="ver-profesores.php">
                 <i class="lead fas fa-users"></i>
                 <span class="lead">Profesores</span>
             </a>

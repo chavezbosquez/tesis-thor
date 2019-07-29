@@ -52,7 +52,7 @@
           $mijson= str_replace('{', "+", $mijson);
             $mijson= str_replace('}', "+", $mijson);
           echo "<td>{$mijson}</td>";*/
-          echo "<td class='text-center'>";
+          echo "<td class='text-center table-fit'>";
           echo "<button class='btn btn-info' alt='Ver detalles del anteproyecto' onclick='mostrarDetalles(\"{$folio}\")'>
                   <!--&nbsp;<i class='fas fa-info'></i>&nbsp;-->
                   <i class='fas fa-info-circle'></i>&nbsp;

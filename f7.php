@@ -8,15 +8,17 @@
     }
     $usuario = $_SESSION['login'];
     $folio  = $_GET['folio'];
-    $sender = $_GET['sender'] . '.php';
-    $label  = $_GET['label'];
+    if ( isset($_GET['sender']) ) {
+      $sender = $_GET['sender'] . '.php';
+      $label  = $_GET['label'];
+    }
     $tituloPagina = "F7 - Liberación del jurado";
+
+    include_once "php/header.php";
     
     /* Lista de Profesores */
     require 'php/profesor.php';
     $listaProfesores = Profesor::getprofesores();
-    
-    include_once "php/header.php";
 
     require_once 'php/tesis.php';
 

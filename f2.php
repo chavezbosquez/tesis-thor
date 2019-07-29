@@ -8,16 +8,18 @@
     }
     $usuario = $_SESSION['login'];
     $folio  = $_GET['folio'];
-    $sender = $_GET['sender'] . '.php';
-    $label  = $_GET['label'];
+    if ( isset($_GET['sender']) ) {
+      $sender = $_GET['sender'] . '.php';
+      $label  = $_GET['label'];
+    }
     $tituloPagina = "F2 - Comisión revisora";
+    
+    include_once "php/header.php";
     
     /* Lista de Profesores */
     require 'php/profesor.php';
     $listaProfesores = Profesor::getprofesores();
     
-    include_once "php/header.php";
-
     /*require_once 'php/bd.php';*/
     require_once 'php/tesis.php';
     require_once 'php/tesista.php';
