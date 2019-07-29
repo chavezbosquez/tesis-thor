@@ -87,12 +87,12 @@
           <th class="text-center">Tesista 1</th>
           <th class="text-center">Tesista 2</th>
           <th class="text-center">Cuerpo académico</th>
-          <th class="text-center"></th>
         </tr>
       </thead>
       <tbody id="tabla">
         <?php
           require_once 'php/bd.php';
+          require_once 'php/tesista.php';
           require_once 'php/cuerpo_academico.php';
           $pdo = BaseDeDatos::conectar();
           $sql = "SELECT folio,nombre,tesista1,tesista2,director,estatus 
@@ -101,20 +101,26 @@
           foreach ($pdo->query($sql,PDO::FETCH_ASSOC) as $registro) {
             extract($registro);
             echo "<tr>";
-            echo "<td>{$nombre}</td>";
-            echo "<td>{$tesista1}</td>";
+            echo "<td>
+                    <a href='#' onclick='mostrarDetalles(\"{$folio}\",\"Tesis\")' title='Ver detalle de la tesis'>
+                      <i class='fas fa-info-circle'></i> {$nombre}
+                    </a>
+                  </td>";
+            $elTesista1 = Tesista::getNombre($tesista1);
+            echo "<td>{$elTesista1['nombre']}</td>";
             if ( isset($tesista2) ) {
-              echo "<td>{$tesista2}</td>";
+              $elTesista2 = Tesista::getNombre($tesista2);
+              echo "<td>{$elTesista2['nombre']}</td>";
             } else {
               echo "<td class='text-center'>—</td>";
             }
-            $ca = CuerpoAcademico::getCuerpoAcademico($director);
-            echo "<td>{$ca}</td>";
-            echo "<td>
-                    <a href='#' onclick='mostrarDetalles(\"{$folio}\")' title='Ver detalles de la tesis'>
+            $cuerpoAcademico = CuerpoAcademico::getCuerpoAcademico($director);
+            echo "<td class='text-center'>{$cuerpoAcademico}</td>";
+            /*echo "<td>
+                    <a href='#' onclick='mostrarDetalles(\"{$folio}\")' title='Ver detalle de la tesis'>
                       <i class='fas fa-info-circle'></i>
                     </a>
-                  </td>";
+                  </td>";*/
             echo "</td>";
             echo "</tr>";
           }

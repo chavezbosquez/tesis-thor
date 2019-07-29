@@ -1,8 +1,14 @@
-function mostrarDetalles(folio) {
-    var dialog = bootbox.alert({
-      title: 'Detalles del anteproyecto',
-      //title: '<div class="alert alert-info" role="alert"><h5>Detalles del anteproyecto</h5></div>',
-      size: "large",
+function mostrarDetalles(folio, tipo) {
+  var titulo = "";
+  if (tipo == "Tesis") {
+    titulo = "Detalles de la Tesis";
+  } else {
+    titulo = "Detalles del Anteproyecto";
+  }
+  var dialogo = bootbox.alert({
+    title: titulo,
+    //title: '<div class="alert alert-info" role="alert"><h5>Detalles del anteproyecto</h5></div>',
+    size: "large",
     message: '<object class="preview-pdf-file" type="text/html" data="ver-detalle-tesis.php?folio=' + folio + '"></object>',
     className : "preview-pdf-modal",
     onEscape: function() {}	        

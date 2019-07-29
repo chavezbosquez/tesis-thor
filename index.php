@@ -67,7 +67,7 @@
           <h1>
           <i class="fas fa-hammer"></i>
             Sistema THOR
-            <code class="font-italic" style="font-size: 0.5em">THesis Organizational Repository</code>
+            <code class="font-italic" style="font-size: 0.5em">THesis Online Repository</code>
           </h1>
           <hr>
           <p class="text-justify lead">El <strong>Sistema THOR</strong> fue desarollado durante el Verano de Código 2019 por un 

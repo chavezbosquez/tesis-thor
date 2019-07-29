@@ -48,7 +48,7 @@
           echo "<td>{$ca}</td>";
           echo "<td class='text-center font-weight-bold'>{$estatus}</td>";
           echo "<td class='text-center'>";
-          echo "<button class='btn btn-primary' alt='Ver detalles del anteproyecto' onclick='mostrarDetalles(\"{$folio}\")'>
+          echo "<button class='btn btn-primary' alt='Ver detalles del anteproyecto' onclick='mostrarDetalles(\"{$folio}\",\"Tesis\")'>
                   <!--&nbsp;<i class='fas fa-info'></i>&nbsp;-->
                   <i class='fas fa-info-circle'></i>&nbsp;
                   Detalles
