@@ -58,7 +58,7 @@
           Oficio del director(es) de tesis
         </label>
         <div class="col-sm-7">
-          <input type="file" class="form-control-file" id="archivo" name="archivo" required>
+          <input type="file" class="form-control-file" id="archivo" name="archivo" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">

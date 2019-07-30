@@ -10,7 +10,8 @@ class Profesor {
 		if (null == self::$listaProfesores) { 
 			require_once 'bd.php';
 			$pdo = BaseDeDatos::conectar();
-			$sql = "SELECT clave,CONCAT(nombre, ' ', apellidos) AS nombreCompleto,cuerpo_academico AS cuerpoAcademico FROM profesor";
+			$sql = "SELECT clave,CONCAT(nombre, ' ', apellidos) AS nombreCompleto,cuerpo_academico AS cuerpoAcademico 
+							FROM profesor ORDER BY nombre";
 			$lista = array();
 			foreach ($pdo->query($sql,PDO::FETCH_ASSOC) as $registro) {
       	array_push($lista, $registro);

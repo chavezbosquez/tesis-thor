@@ -72,7 +72,7 @@
           <?php echo $elJurado1['nombre']; ?>
         </label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo1" name="archivo1" required>
+          <input type="file" class="form-control-file" id="archivo1" name="archivo1" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">
@@ -80,7 +80,7 @@
             <?php echo $elJurado2['nombre']; ?>
         </label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo2" name="archivo2" required>
+          <input type="file" class="form-control-file" id="archivo2" name="archivo2" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">
@@ -88,7 +88,7 @@
             <?php echo $elJurado3['nombre']; ?>
         </label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo3" name="archivo3" required>
+          <input type="file" class="form-control-file" id="archivo3" name="archivo3" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">
@@ -96,7 +96,7 @@
             <?php echo $elJurado4['nombre']; ?>
         </label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo4" name="archivo4" required>
+          <input type="file" class="form-control-file" id="archivo4" name="archivo4" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">
@@ -104,7 +104,7 @@
             <?php echo $elJurado5['nombre']; ?>
         </label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo5" name="archivo5" required>
+          <input type="file" class="form-control-file" id="archivo5" name="archivo5" accept="application/pdf" required>
         </div>
       </div>
     </div>
@@ -146,7 +146,7 @@
       <div class="form-group row">
         <label for="archivo6" class="font-weight-bold col-sm-4 col-form-label">Formato F8</label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo6" name="archivo6" required>
+          <input type="file" class="form-control-file" id="archivo6" name="archivo6" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">

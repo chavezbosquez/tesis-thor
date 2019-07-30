@@ -66,7 +66,7 @@
           Oficio de solicitud 
         </label>
         <div class="col-sm-7">
-          <input type="file" class="form-control-file" id="archivo1" name="archivo1" required>
+          <input type="file" class="form-control-file" id="archivo1" name="archivo1" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">
@@ -76,7 +76,7 @@
           Director de tesis
         </label>
         <div class="col-sm-7">
-          <input type="file" class="form-control-file" id="archivo2" name="archivo2" required>
+          <input type="file" class="form-control-file" id="archivo2" name="archivo2" accept="application/pdf" required>
         </div>
       </div>
       <?php if ($hayCodirector) { ?>
@@ -87,7 +87,7 @@
           Codirector
         </label>
         <div class="col-sm-7">
-          <input type="file" class="form-control-file" id="archivo3" name="archivo3" required>
+          <input type="file" class="form-control-file" id="archivo3" name="archivo3" accept="application/pdf" required>
         </div>
       </div>
       <?php } ?>

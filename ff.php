@@ -58,7 +58,7 @@
           Liberación del Jurado
         </label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo1" name="archivo1" required>
+          <input type="file" class="form-control-file" id="archivo1" name="archivo1" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">
@@ -66,7 +66,7 @@
           Autorización de impresión
         </label>
         <div class="col-sm-8">
-          <input type="file" class="form-control-file" id="archivo2" name="archivo2" required>
+          <input type="file" class="form-control-file" id="archivo2" name="archivo2" accept="application/pdf" required>
         </div>
       </div>
       <div class="form-group row">
