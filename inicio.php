@@ -10,7 +10,8 @@
 ?>
 <!-- Encabezado de página -->
 
-<main role="main" class="card container container-fluid body-content rounded p-4">
+<?php include_once "php/header2.php"; ?>
+<!--<main role="main" class="card container container-fluid body-content rounded p-4">
   <div class="clearfix">
     <h2 class="float-left">
       <i class="fas fa-hammer"></i>
@@ -23,7 +24,7 @@
       </a>
     </p>
   </div>
-  <hr>
+  <hr>-->
   <div class="row">
     <div class="col-sm-3">
       <div class="card bg-primary">
@@ -33,7 +34,7 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><a href="f1.php">Nuevo anteproyecto</a></li>
           <li class="list-group-item"><a href="ver-anteproyecto.php">Listado de anteproyectos</a></li>
-          <li class="list-group-item"><a>Estadísticas</a></li>
+          <li class="list-group-item"><a href="#" class="btn-link disabled">Estadísticas</a></li>
         </ul>
       </div>
     </div>
@@ -44,9 +45,19 @@
           Seguimiento de tesis
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="#" id="show-mati">Buscar por matrícula</a></li>
           <li class="list-group-item"><a href="ver-tesis.php">Tesis en proceso</a></li>
-          <li class="list-group-item"><a>Estadísticas</a></li>
+          <li class="list-group-item"><a href="#" class="btn-link disabled">Estadísticas</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="card bg-warning">
+        <div class="card-header">
+          Consultas 
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><a href="#" id="show-mati">Buscar por matrícula</a></li>
+          <li class="list-group-item"><a href="#" id="show-foli">Buscar por folio</a></li>
         </ul>
       </div>
     </div>
@@ -58,11 +69,12 @@
         <ul class="list-group list-group-flush">
           <li class="list-group-item"><a href="formatos.php">Ver formatos</a></li>
           <li class="list-group-item"><a href="ver-profesores.php">Listado de profesores</a></li>
+          <li class="list-group-item"><a href="ver-profesores.php">Ayuda del Sistema THOR</a></li>
         </ul>
       </div>
     </div>
     <?php if ($admin) { ?>
-      <div class="col-sm-3">
+      <!--<div class="col-sm-3">
         <div class="card bg-warning">
           <div class="card-header">
             Administración del sistema
@@ -72,7 +84,7 @@
             <li class="list-group-item"><a>Modificar tesis</a></li>
           </ul>
         </div>
-      </div>
+      </div>-->
     <?php } ?>
   </div><!-- row -->
   <p>
@@ -85,7 +97,7 @@
         <tr>
           <th class="text-center">Nombre</th>
           <th class="text-center">Tesista 1</th>
-          <th class="text-center">Tesista 2</th>
+          <th class="text-center table-fit">Tesista 2</th>
           <th class="text-center">Cuerpo académico</th>
         </tr>
       </thead>
@@ -149,6 +161,29 @@
   });
 </script>
 
+<script>
+  $(document).on("click", "#show-foli", function(e) {
+    bootbox.prompt({
+      size: "medium",
+      title: "Folio del anteproyecto o tesis",
+      buttons: {
+        confirm: {
+            label: 'Buscar',
+            className: 'btn-info'
+        },
+        cancel: {
+            label: 'Cancelar'
+        }
+      },
+      callback: function(result) {
+        if (result != null) {
+          location.href = "php/tesista-adrian.php?folio=" + result;
+        }
+      }
+    });
+  });
+</script>
+
 <script src="js/dialogos.js"></script>
 
 <!-- Pie de página -->
@@ -165,7 +200,12 @@
       } else if ($error == "2") { /* Tesis concluída */
         $tesis = htmlspecialchars($_GET['tesis']);
         echo "<script> 
-                  bootbox.alert('La tesis <strong>{$tesis}</strong> ha concluído. Revise los detalles de la tesis en la tabla de Tesis concluídas.');
+                  bootbox.alert('La tesis <strong>{$tesis}</strong> ha concluido. Revise los detalles de la tesis en la tabla de Tesis concluídas.');
+              </script>";
+      } else if ($error == "3") { /* No existe el folio */
+        $folio = htmlspecialchars($_GET['folio']);
+        echo "<script> 
+                  bootbox.alert('¡No existe tesis con folio <strong>{$folio}</strong>!');
               </script>";
       }
     }

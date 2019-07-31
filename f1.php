@@ -4,6 +4,7 @@
     header("location: index.php");
   } else {
     $usuario = $_SESSION['login'];
+    $admin   = $_SESSION['admin'];
     $tituloPagina = "F1 - Nuevo anteproyecto";
     
     include_once "php/header.php";
@@ -56,7 +57,7 @@
     <fieldset class="border pt-4 pl-4 pr-4 mb-3">
       <legend class="w-auto mb-0"><span class="font-weight-bold" style="font-size:16px">Director</span></legend>
       <div class="form-group row">
-        <label for="cuerpoAcad1" class="col-sm-3 col-form-label">Cuerpo Académico</label>
+        <label for="cuerpo-academico1" class="col-sm-3 col-form-label">Cuerpo Académico</label>
         <div class="col-sm-9">
           <select class="form-control" id="cuerpo-academico1">
             <?php
@@ -89,9 +90,9 @@
       </legend>
       <div id="areaCodirector" style="display: none;">
         <div class="form-group row">
-          <label for="cuerpoAcad2" class="col-sm-3 col-form-label">Cuerpo Académico</label>
+          <label for="cuerpo-academico2" class="col-sm-3 col-form-label">Cuerpo Académico</label>
           <div class="col-sm-9">
-            <select class="form-control" id="cuerpoAcad2" name="cuerpoAcad2">
+            <select class="form-control" id="cuerpo-academico2">
               <?php
                 foreach ($listaCA as $ca) {
                   extract($ca);
@@ -255,7 +256,7 @@
           <i class="fas fa-save">&nbsp;</i>
           Guardar
         </button>
-        <a href="inicio.php" class="btn btn-dark btn-lg btn-block">
+        <a href="inicio.php" class="btn btn-secondary btn-lg btn-block">
           <i class="fas fa-times">&nbsp;</i>
           Cancelar
         </a>
@@ -279,11 +280,11 @@
     areaTesista2   = document.getElementById("areaTesista2");
     if (hayCodirector.checked) {
       areaCodirector.style.display = "block";
-      document.getElementById("cuerpoAcad2").required = true;
+      document.getElementById("cuerpo-academico2").required = true;
       document.getElementById("codirector").required  = true;
     } else {
       areaCodirector.style.display = "none";
-      document.getElementById("cuerpoAcad2").required = false;
+      document.getElementById("cuerpo-academico2").required = false;
       document.getElementById("codirector").required  = false;
     }
     if (hayExterno.checked) {
@@ -357,6 +358,28 @@
     // Evento
     $('#cuerpo-academico1').change(function() {
       filtrarProfesor($(this).val());
+    });
+  });
+</script>
+
+<script>
+  $(function() {
+    var filtrarProfesor2 = function(cuerpoAcademico2) {
+      $('#codirector option').hide();
+      $('#codirector').find('option').filter(function() {
+        var ca = $(this).attr('aria-cuerpo-academico');
+        return ca == cuerpoAcademico2;
+      }).show();
+      // Valor default
+      var elCodirector = $('#codirector option:visible:first').text();
+      $('#codirector').val(elCodirector);
+    };
+    // Cuerpo académico default
+    var cuerpoAcademico2 = $('#cuerpo-academico2').val();
+    filtrarProfesor2(cuerpoAcademico2);
+    // Evento
+    $('#cuerpo-academico2').change(function() {
+      filtrarProfesor2($(this).val());
     });
   });
 </script>

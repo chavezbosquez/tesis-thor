@@ -3,21 +3,42 @@
     <h2 class="float-left">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb" style="background-color: white; padding: 0; margin:0">
+        <!-- La página inicio.php no tiene link hacia atrás -->
+        <?php if ( $tituloPagina == "Inicio" ) { ?>
+          <li class="breadcrumb-item"><i class="fas fa-hammer"></i>&nbsp;Inicio</li>
+        <?php } else { ?>
           <li class="breadcrumb-item"><a href="inicio.php"><i class="fas fa-hammer"></i></a></li>
+          <!-- Cuando hay una página entre inicio.php y la página actual -->
           <?php if ( isset($label) ) {
             echo "<li class='breadcrumb-item'><a href='{$sender}'>{$label}</a></li>";
           } ?> 
           <li class="breadcrumb-item" aria-current="page">
             <?php echo($tituloPagina); ?>
           </li>
+        <?php } ?>
         </ol>
       </nav>
     </h2>
-    <p class="float-right mr-2">
-      Usuario: <span class="text-danger"><?php echo $usuario; ?></span>
-      <a class="btn-danger btn-sm" href="php/salir.php" title="Cerrar sesión">
+   
+    <div class="dropdown show float-right mr-2">
+      <button class="btn dropdown-toggle text-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Usuario: <?php echo $usuario; ?>
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <!--<h6 class="dropdown-header">Administración</h6>-->
+        <?php if ($admin) { ?>
+          <a class="dropdown-item" href="#">
+            <i class="fas fa-cogs"></i>
+            Gestionar usuarios
+          </a>
+          <div class="dropdown-divider"></div>
+        <?php } ?>
+        <a class="dropdown-item" href="php/salir.php">
         <i class="fas fa-sign-out-alt"></i>
-      </a>
-    </p>
+          Cerrar sesión
+        </a>
+      </div>
+    </div>
+
   </div>
   <hr>

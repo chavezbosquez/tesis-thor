@@ -7,6 +7,7 @@
       header("location: inicio.php");
     }
     $usuario = $_SESSION['login'];
+    $admin   = $_SESSION['admin'];
     $folio  = $_GET['folio'];
     if ( isset($_GET['sender']) ) {
       $sender = $_GET['sender'] . '.php';

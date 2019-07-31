@@ -6,13 +6,22 @@
   if ( empty($_GET) ) {
     header("Location: ../inicio.php");
   }
-  $matricula = $_GET['matricula'];
-  require_once 'tesista.php';
-  $tupla = Tesista::getFolioTesis($matricula);
-  $folio   = $tupla['folio'];
+  /* ¿Búsqueda por matrícula o por tesis? */
+  $tupla = null;
+  $folio = null;
+  if ( isset($_GET['matricula']) ) {
+    require_once 'tesista.php';
+    $matricula = $_GET['matricula'];
+    $tupla = Tesista::getFolioTesis($matricula);
+    $folio   = $tupla['folio'];
+  } else if ( isset($_GET['folio']) ) {
+    require_once 'tesis.php';
+    $folio = $_GET['folio'];
+    $tupla = Tesis::getDatosF3($folio);
+  }
   $nombre  = $tupla['nombre'];
   $estatus = $tupla['estatus'];
-  if ( isset($folio) && !empty($folio) ) {
+  if ( isset($estatus) && !empty($estatus) ) {
     //header("Location: ../ver-detalle-tesis.php?folio={$folio}");
     switch ($estatus) {
       case "F1": $fSiguiente = "f2";
@@ -35,47 +44,15 @@
                 break;
       case "F8": $fSiguiente = "ff";
                 break;
-      case "FF": header("Location: ../inicio.php?error=2&tesis={$nombre}");//echo("final"); exit();
+      case "FF": header("Location: ../inicio.php?error=2&tesis={$nombre}");
                 exit();
     }
     header("Location: ../{$fSiguiente}.php?folio={$folio}");
   } else {
-    header("Location: ../inicio.php?error=1&matricula={$matricula}");
+    if ( isset($matricula) ) {
+      header("Location: ../inicio.php?error=1&matricula={$matricula}");
+    } else {
+      header("Location: ../inicio.php?error=3&folio={$folio}");
+    }
   }
-/*$listaTesista = Tesista::getTesista($matricula);
-
-        if (!empty($listaTesista)) {
-            
-            foreach ($listaTesista as $tesista) {
-                $pagina = '';
-                extract($tesista);
-
-                    if($ESTATUS == "F1"){
-                        header('Location: ../f2.php?folio='.$FOLIO.'&sender=inicio&label=Inicio');
-                    } else if ($ESTATUS == "F2"){
-                        //ir a F3
-                    } else if ($ESTATUS == "F3"){
-                        //ir a F4
-                    } else if ($ESTATUS == "F4"){
-                        //ir a F5
-                    } else if ($ESTATUS == "F5"){
-                        //ir a F6
-                    } else if ($ESTATUS == "F6"){
-                        //ir a F7
-                    } else if ($ESTATUS == "F7"){
-                        //ir a F8
-                    }
-                
-            
-                break;
-         }
-            
-            //ir al F que sigue
-            //header('Location: ..//F-siguiente.php');
-            //echo 'Si hay';
-        }else {
-            //regresar mensaje de error
-            header('Location: ../inicio.php?error=1&matricula='.$matricula.'');
-            //echo 'No hay';
-        }*/
 ?>
