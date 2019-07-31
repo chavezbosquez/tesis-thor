@@ -149,7 +149,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="nombre1" class="col-sm-3 col-form-label">Nombre</label>
+          <label for="nombre1" class="col-sm-3 col-form-label">Nombre/s</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" id="nombre1" name="nombre1" required>
           </div>
@@ -187,7 +187,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="nombre2" class="col-sm-3 col-form-label">Nombre</label>
+          <label for="nombre2" class="col-sm-3 col-form-label">Nombre/s</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" id="nombre2" name="nombre2">
           </div>
