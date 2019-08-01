@@ -32,6 +32,20 @@
     $elJurado3 = Profesor::getDatosProfesor($laTesis['jurado3']);
     $elJurado4 = Profesor::getDatosProfesor($laTesis['jurado4']);
     $elJurado5 = Profesor::getDatosProfesor($laTesis['jurado5']);
+
+    $fechaFatal = Tesis::getFechaLimite($folio);
+    //date_default_timezone_set( string $timezone_identifier );
+
+    /*$f = Tesis::getFechaLimite($folio);
+    $f = strtotime($f);
+    $new_date = strtotime('+ 1 year', $f);
+    $fechaFatal = date('d/m/Y', $new_date);*/
+
+    /*$hoy = time();
+    $secs = $f - $hoy; // == <seconds between the two times>
+    $dias = round($secs / 86400, 0);
+
+    $fechaFatal = $fechaFatal . " (quedan {$dias} días para entregar el F8)";*/ 
 ?>
 <!-- Encabezado de página -->
 
@@ -39,8 +53,8 @@
 
 <div class="row">
   <div class="col-sm-8">
-    <div class="alert alert-info font-weight-bold" role="alert">
-      Datos del anteproyecto
+    <div class="alert alert-dark font-weight-bold" role="alert">
+      Datos de la tesis
     </div>
     <div class="form-group row">
       <div class="col-sm-2 text-right">
@@ -56,6 +70,13 @@
         <textarea class="form-control" id="nombre" name="nombre" readonly><?php echo $laTesis['nombre']; ?></textarea>
       </div>
     </div>
+    <div class="form-group row">
+      <label for="limite" class="font-weight-bold col-sm-2 col-form-label">Fecha límite</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="limite" name="limite" value="<?php echo $fechaFatal; ?>" readonly>
+      </div>
+      <label class="col-form-label text-danger font-weight-bold">Para entregar el F8</label>
+    </div>
   </div>
 </div>
 
@@ -65,7 +86,7 @@
   <input type="hidden" id="estatus" name="estatus" value ="<?php echo $laTesis['estatus']; ?>">
   <div class="row">
     <div class="col-sm-8">
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="alert alert-info font-weight-bold mt-4" role="alert">
         1. Oficios del Jurado
       </div>
       <div class="form-group row">
@@ -110,7 +131,7 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div class=" row">
+      <div class="row mt-4">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
           <button type="submit" class="btn btn-primary btn-block" name="guardar">

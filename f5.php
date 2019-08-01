@@ -25,6 +25,7 @@
     if ( !isset($laTesis['nombre']) ) {
       header("location: inicio.php");
     }
+    $fechaFatal = Tesis::getFechaLimite($folio);
 ?>
 <!-- Encabezado de página -->
 
@@ -34,7 +35,7 @@
   <input type="hidden" id="folio" name="folio" value ="<?php echo $folio; ?>">
   <div class="row">
     <div class="col-sm-8">
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="alert alert-dark font-weight-bold" role="alert">
         Datos de la tesis
       </div>
       <div class="form-group row">
@@ -51,7 +52,14 @@
           <textarea class="form-control" id="nombre" name="nombre" readonly><?php echo $laTesis['nombre']; ?></textarea>
         </div>
       </div>
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="form-group row">
+        <label for="limite" class="font-weight-bold col-sm-2 col-form-label">Fecha límite</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control" id="limite" name="limite" value="<?php echo $fechaFatal; ?>" readonly>
+        </div>
+        <label class="col-form-label text-danger font-weight-bold">Para entregar el F8</label>
+      </div>
+      <div class="alert alert-info font-weight-bold mt-5" role="alert">
         Oficio de asignación de calificaciones 
       </div>
       <div class="form-group row">

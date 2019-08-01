@@ -34,7 +34,7 @@
   <input type="hidden" id="folio" name="folio" value ="<?php echo $folio; ?>">
   <div class="row">
     <div class="col-sm-8">
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="alert alert-dark font-weight-bold" role="alert">
         Datos de la tesis
       </div>
       <div class="form-group row">

@@ -7,8 +7,9 @@
       $clave  = $_POST['clave'];
       $contra = $_POST['contra'];
     }
+    include_once "php/header.php";
 ?>
-
+<!--
 <!DOCTYPE html>
 <html lang="es">
 
@@ -22,12 +23,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
     integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   <link rel="stylesheet" href="css/estylo.css">
-  <!-- JS dependencies -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <!-- Bootstrap 4 dependency -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <!-- bootbox code -->
   <script src="js/bootbox.min.js"></script>
   <script src="js/bootbox.locales.min.js"></script>
 </head>
@@ -40,6 +38,8 @@
       </div>
     </div>
   </header>
+  -->
+
   <main role="main" class="card container container-fluid body-content rounded p-4">
     <div class="row">
       <div class="col-xs-12 col-sm-10 col-md-3 col-lg-3 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
@@ -71,7 +71,7 @@
           </h1>
           <hr>
           <p class="text-justify lead">El <strong>Sistema THOR</strong> fue desarollado durante el Verano de Código 2019 por un 
-            <a href="acerca.html">entusiasta equipo de programadores</a> en conjunto con la Coordinación de Estudios Terminales.
+            <a href="acercade.php">entusiasta equipo de programadores</a> en conjunto con la Coordinación de Estudios Terminales.
           </p>
           <p class="lead">
             Si deseas puedes ingresar a nuestra plataforma y consultar:

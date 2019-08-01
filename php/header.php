@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/all.min.css">
   <link rel="stylesheet" href="css/estylo.css">
+  
   <!-- JS dependencies -->
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
   <script src="js/jquery-3.4.1.min.js"></script>
@@ -24,6 +25,7 @@
   <!-- bootbox code -->
   <script src="js/bootbox.min.js"></script>
   <script src="js/bootbox.locales.min.js"></script>
+  
 </head>
 
 <body role="document">

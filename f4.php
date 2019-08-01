@@ -42,7 +42,7 @@
   <input type="hidden" id="hayCodirector" name="hayCodirector" value ="<?php echo $hayCodirector; ?>">
   <div class="row">
     <div class="col-sm-8">
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="alert alert-dark font-weight-bold" role="alert">
         Datos del anteproyecto
       </div>
       <div class="form-group row">
@@ -59,7 +59,7 @@
           <textarea class="form-control" id="nombre" name="nombre" readonly><?php echo $laTesis['nombre']; ?></textarea>
         </div>
       </div>
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="alert alert-info font-weight-bold mt-4" role="alert">
         Oficios de solicitud y asignación de director
       </div>
       <div class="form-group row">
@@ -101,7 +101,9 @@
       <div class="form-group row">
         <div class="col-sm-5"></div>
         <div class="col-sm-7 alert alert-danger" role="alert">
-          <strong>Importante</strong>:<br> A partir de esta fecha resta un año para titularse.
+          <strong>Importante</strong>:
+          <br>
+          A partir de esta fecha resta un año para titularse.
         </div>
       </div>
       

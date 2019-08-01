@@ -13,7 +13,7 @@
       $sender = $_GET['sender'] . '.php';
       $label  = $_GET['label'];
     }
-    $tituloPagina = "F7 - Liberación del jurado";
+    $tituloPagina = "F7 - Solicitud del jurado";
 
     include_once "php/header.php";
     
@@ -29,7 +29,7 @@
     if ( !isset($laTesis['nombre']) ) {
       header("location: inicio.php");
     }
-    
+    $fechaFatal = Tesis::getFechaLimite($folio);
 ?>
 <!-- Encabezado de página -->
 
@@ -39,7 +39,7 @@
   <input type="hidden" id="folio" name="folio" value ="<?php echo $folio;?>">
   <div class="row">
     <div class="col-sm-8">
-    <div class="alert alert-info font-weight-bold" role="alert">
+    <div class="alert alert-dark font-weight-bold" role="alert">
       Datos de la tesis
     </div>
     <div class="form-group row">
@@ -55,6 +55,17 @@
       <div class="col-sm-9">
         <textarea class="form-control" id="nombre" name="nombre" readonly><?php echo $laTesis['nombre']; ?></textarea>
       </div>
+    </div>
+    <div class="form-group row">
+      <label for="limite" class="font-weight-bold col-sm-3 col-form-label">Fecha límite</label>
+      <div class="col-sm-3">
+        <input type="text" class="form-control" id="limite" name="limite" value="<?php echo $fechaFatal; ?>" readonly>
+      </div>
+      <label class="col-form-label text-danger font-weight-bold">Para entregar el F8</label>
+    </div>
+
+    <div class="alert alert-info font-weight-bold mt-5" role="alert">
+      Oficio de solicitud
     </div>
     <div class="form-group row">
       <label for="fecha" class="font-weight-bold col-sm-3 col-form-label">Fecha</label>
@@ -74,52 +85,70 @@
     <div class="form-group row">
       <label for="jurado1" class="col-sm-3 col-form-label">Jurado 1</label>
       <div class="col-sm-9">
-        <select class="form-control" id="jurado1" name="jurado1" required>
+        <!--<select class="form-control" id="jurado1" name="jurado1" required>
           <?php
-            foreach ($listaProfesores as $profesor) {
+            /*foreach ($listaProfesores as $profesor) {
               extract($profesor);
               if ($clave == $laTesis['nombre']) {
                 echo "<option value='{$clave}' selected>{$nombreCompleto}</option>";
               } else {
                 echo "<option value='{$clave}'>{$nombreCompleto}</option>";
               }
-            }
+            }*/
           ?>
-        </select>
+        </select>-->
+        <input type="hidden" id="jurado1" name="jurado1" value ="<?php echo $laTesis['revisor1'];?>">
+        <?php
+          $elJurado1 = Profesor::getDatosProfesor( $laTesis['revisor1'] );
+          $jurado1 = $elJurado1['nombre'];
+          echo "<input class='form-control' type='text' id='nombre1' value='{$jurado1}' disabled>";
+        ?>
       </div>
     </div>
     <div class="form-group row">
       <label for="jurado2" class="col-sm-3 col-form-label">Jurado 2</label>
       <div class="col-sm-9">
-        <select class="form-control" id="jurado2" name="jurado2" required>
+        <!--<select class="form-control" id="jurado2" name="jurado2" required>
           <?php
-            foreach ($listaProfesores as $profesor) {
+            /*foreach ($listaProfesores as $profesor) {
               extract($profesor);
               if ($clave == $laTesis['nombre']) {
                 echo "<option value='{$clave}' selected>{$nombreCompleto}</option>";
               } else {
                 echo "<option value='{$clave}'>{$nombreCompleto}</option>";
               }
-            }
+            }*/
           ?>
-        </select>
+        </select>-->
+        <input type="hidden" id="jurado2" name="jurado2" value ="<?php echo $laTesis['revisor2'];?>">
+        <?php
+          $elJurado2 = Profesor::getDatosProfesor( $laTesis['revisor2'] );
+          $jurado2 = $elJurado2['nombre'];
+          echo "<input class='form-control' type='text' id='nombre2' value='{$jurado2}' disabled>";
+        ?>
       </div>
     </div>
     <div class="form-group row">
       <label for="jurado3" class="col-sm-3 col-form-label">Jurado 3</label>
       <div class="col-sm-9">
-        <select class="form-control" id="jurado3" name="jurado3" required>
+        <!--<select class="form-control" id="jurado3" name="jurado3" required>
           <?php
-            foreach ($listaProfesores as $profesor) {
+            /*foreach ($listaProfesores as $profesor) {
               extract($profesor);
               if ($clave == $laTesis['nombre']) {
                 echo "<option value='{$clave}' selected>{$nombreCompleto}</option>";
               } else {
                 echo "<option value='{$clave}'>{$nombreCompleto}</option>";
               }
-            }
+            }*/
           ?>
-        </select>
+        </select>-->
+        <input type="hidden" id="jurado3" name="jurado3" value ="<?php echo $laTesis['revisor3'];?>">
+        <?php
+          $elJurado3 = Profesor::getDatosProfesor( $laTesis['revisor3'] );
+          $jurado3 = $elJurado3['nombre'];
+          echo "<input class='form-control' type='text' id='nombre3' value='{$jurado3}' disabled>";
+        ?>
       </div>
     </div>
     <div class="form-group row">

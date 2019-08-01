@@ -60,23 +60,27 @@
           <?php
             require_once 'php/bd.php';
             $pdo = BaseDeDatos::conectar();
-            $sql = "SELECT * FROM profesor";
+            $sql = "SELECT * FROM profesor ORDER BY nombre";
             foreach ($pdo->query($sql,PDO::FETCH_ASSOC) as $registro) {
               extract($registro);
               echo "<tr>";
-              echo "<td>{$grado}</td>";
+              echo "<td class='align-middle'>{$grado}</td>";
               $nombreCompleto = $nombre   . " " . $apellidos;
-              echo "<td>";
-              echo "<a href='#' data-toggle='modal' data-target='#fotoModal' data-clave='{$clave}' data-nombre='{$nombreCompleto}'>
-                      {$nombreCompleto}
-                    </a>";
+              echo "<td class='text-dark font-weight-bold align-middle table-fit'>";
+              echo //"<a href='#' data-toggle='modal' data-target='#fotoModal' data-clave='{$clave}' data-nombre='{$nombreCompleto}'>
+                      "{$nombreCompleto}";
+                    //</a>";
               echo "</td>";
-              echo "<td>{$cubiculo}</td>";
-              echo "<td class='text-monospace'>{$correo}</td>";
+              echo "<td class='align-middle'>{$cubiculo}</td>";
+              echo "<td class='text-monospace align-middle' style='font-size:15px'>{$correo}</td>";
               $cons = $pdo->query("SELECT nombre FROM cuerpo_academico WHERE clave='{$cuerpo_academico}' LIMIT 1",PDO::FETCH_ASSOC);
               $ca = $cons->fetchColumn();
-              echo "<td>{$ca}</td>";
-              echo "<td class='text-center'>{$estatus}</td>";
+              if ($ca == "Ninguno") {
+                echo "<td class='text-center align-middle'>—</td>";
+              } else {
+                echo "<td class='align-middle'>{$ca}</td>";
+              }
+              echo "<td class='text-center align-middle'>{$estatus}</td>";
               echo "</tr>";
             }
             BaseDeDatos::desconectar();

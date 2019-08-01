@@ -7,41 +7,33 @@
     $admin   = $_SESSION['admin'];
     $tituloPagina = "Inicio";
     include_once "php/header.php";
+    include_once "php/header2.php";
 ?>
 <!-- Encabezado de página -->
 
-<?php include_once "php/header2.php"; ?>
-<!--<main role="main" class="card container container-fluid body-content rounded p-4">
-  <div class="clearfix">
-    <h2 class="float-left">
-      <i class="fas fa-hammer"></i>
-      Inicio
-    </h2>
-    <p class="float-right mr-2">
-      Usuario: <span class="text-danger"><?php echo $usuario; ?></span>
-      <a class="btn-danger btn-sm" href="php/salir.php" title="Cerrar sesión">
-      <i class="fas fa-sign-out-alt"></i>
+<!--<p class="float-right mr-2">
+      <a class=" btn-success btn-sm" id="start-help" href="#" title="Ayuda">
+        <i class="fas fa-question-circle"></i>
       </a>
     </p>
-  </div>
-  <hr>-->
+    -->
   <div class="row">
     <div class="col-sm-3">
       <div class="card bg-primary">
-        <div class="card-header text-white">
+        <div id="div-tema" class="card-header text-white">
           Temas de tesis
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="f1.php">Nuevo anteproyecto</a></li>
-          <li class="list-group-item"><a href="ver-anteproyecto.php">Listado de anteproyectos</a></li>
-          <li class="list-group-item"><a href="#" class="btn-link disabled">Estadísticas</a></li>
+          <li id="li-nuevo-anteproyecto" class="list-group-item"><a href="f1.php">Nuevo anteproyecto</a></li>
+          <li id="li-ver-anteproyecto" class="list-group-item"><a href="ver-anteproyecto.php">Listado de anteproyectos</a></li>
+          <li id="li-estadisticas" class="list-group-item"><a href="#" class="btn-link disabled">Estadísticas</a></li>
         </ul>
       </div>
     </div>
     <!-- -->
     <div class="col-sm-3">
       <div class="card bg-danger">
-        <div class="card-header text-white">
+        <div id="div-seguimiento" class="card-header text-white">
           Seguimiento de tesis
         </div>
         <ul class="list-group list-group-flush">
@@ -56,32 +48,32 @@
           Consultas 
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="#" id="show-mati">Buscar por matrícula</a></li>
-          <li class="list-group-item"><a href="#" id="show-foli">Buscar por folio</a></li>
+          <li id="li-buscar" class="list-group-item"><a href="#" id="show-mati">Buscar por matrícula</a></li>
+          <li id="li-tesis-proceso" class="list-group-item"><a href="#" id="show-foli">Buscar por folio</a></li>
         </ul>
       </div>
     </div>
     <div class="col-sm-3">
       <div class="card bg-secondary">
-        <div class="card-header text-white">
+        <div id="div-miscelanea" class="card-header text-white">
           Miscelánea 
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><a href="formatos.php">Ver formatos</a></li>
+          <li id="li-formatos" class="list-group-item"><a href="formatos.php">Ver formatos</a></li>
           <li class="list-group-item"><a href="ver-profesores.php">Listado de profesores</a></li>
-          <li class="list-group-item"><a href="ver-profesores.php">Ayuda del Sistema THOR</a></li>
+          <li id="li-profesores" class="list-group-item"><a href="ayuda.php">Ayuda del Sistema THOR</a></li>
         </ul>
       </div>
     </div>
     <?php if ($admin) { ?>
       <!--<div class="col-sm-3">
         <div class="card bg-warning">
-          <div class="card-header">
+          <div id="div-admin" class="card-header">
             Administración del sistema
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a>Listado de usuarios</a></li>
-            <li class="list-group-item"><a>Modificar tesis</a></li>
+            <li id="li-usuarios" class="list-group-item"><a>Listado de usuarios</a></li>
+            <li id="li-modificar-tesis" class="list-group-item"><a>Modificar tesis</a></li>
           </ul>
         </div>
       </div>-->
@@ -92,12 +84,12 @@
   </p>
   <div class="col-sm-12">
     <span class="lead"><strong>Tesis concluídas</strong></span>
-    <table class="table table-striped table-bordered table-hover table-condensed table-sm">
+    <table id="table-tesis-concluidas" class="table table-striped table-bordered table-hover table-condensed table-sm">
       <thead class="bg-dark text-white">
         <tr>
           <th class="text-center">Nombre</th>
           <th class="text-center">Tesista 1</th>
-          <th class="text-center table-fit">Tesista 2</th>
+          <th class="text-center">Tesista 2</th>
           <th class="text-center">Cuerpo académico</th>
         </tr>
       </thead>
@@ -185,6 +177,12 @@
 </script>
 
 <script src="js/dialogos.js"></script>
+
+<!--Bootstrap tour
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/css/bootstrap-tour-standalone.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tour/0.11.0/js/bootstrap-tour-standalone.min.js"></script>
+<script src="js/help-tour-inicio.js"></script>
+-->
 
 <!-- Pie de página -->
 <?php

@@ -19,7 +19,7 @@
 
     require_once 'php/profesor.php';
     require_once 'php/tesis.php';
-    // "SELECT nombre,revisor1,revisor2,revisor3,estatus FROM tesis WHERE folio='{$folio}' LIMIT 1";
+    
     $laTesis = Tesis::getDatosF3($folio);
 
     /* Una validación muy simple por si un usuario malintencionado escribe una URL con un folio inexistente */
@@ -37,7 +37,7 @@
 
 <div class="row">
   <div class="col-sm-8">
-    <div class="alert alert-info font-weight-bold" role="alert">
+    <div class="alert alert-dark font-weight-bold" role="alert">
       Datos del anteproyecto
     </div>
     <div class="form-group row">
@@ -63,7 +63,7 @@
   <input type="hidden" id="estatus" name="estatus" value ="<?php echo $laTesis['estatus']; ?>">
   <div class="row">
     <div class="col-sm-8">
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="alert alert-info font-weight-bold mt-4" role="alert">
         1. Oficios de la Comisión Revisora
       </div>
       <div class="form-group row">
@@ -92,7 +92,7 @@
       </div>
     </div>
     <div class="col-sm-4">
-      <div class=" row">
+      <div class="row mt-4">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
           <button type="submit" class="btn btn-primary btn-block" name="guardar">
@@ -122,7 +122,7 @@
         Primero debes guardar los oficios de asignación de la Comisión Revisora
       </div>
     <?php } else { ?>
-      <div class="alert alert-info font-weight-bold" role="alert">
+      <div class="alert alert-info font-weight-bold mt-4" role="alert">
         Respuesta de la Comisión Revisora
       </div>
     <?php } ?>
@@ -140,7 +140,7 @@
     </div>
     </div>
     <div class="col-sm-4">
-      <div class=" row">
+      <div class="row mt-4">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
         <button type="submit" class="btn btn-primary btn-block" name="guardar">

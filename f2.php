@@ -21,17 +21,8 @@
     require 'php/profesor.php';
     $listaProfesores = Profesor::getprofesores();
     
-    /*require_once 'php/bd.php';*/
     require_once 'php/tesis.php';
     require_once 'php/tesista.php';
-    
-    /*$pdo = BaseDeDatos::conectar();
-    $sql = "SELECT tesis.nombre,tesista1,tesista2,
-            CONCAT(tesista.nombre, ' ', tesista.apellidos) AS nombreTesista
-              FROM tesis,tesista
-                WHERE folio='{$folio}' AND tesista1=tesista.matricula LIMIT 1";
-    $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
-    $registro = $cons->fetch();*/
 
     $laTesis = Tesis::getDatos($folio);
 
@@ -56,7 +47,7 @@
   <input type="hidden" id="hayTesista2" name="hayTesista2" value ="<?php echo $laTesis['hayTesista2'];?>">
   <div class="row">
     <div class="col-sm-8">
-    <div class="alert alert-info font-weight-bold" role="alert">
+    <div class="alert alert-dark font-weight-bold" role="alert">
       Datos del anteproyecto
     </div>
     <div class="form-group row">
@@ -127,7 +118,7 @@
         </select>
       </div>
     </div>
-    <!------------------------- TESISTAS ------------------------------------->
+    <!-- ---------------------- TESISTAS ---------------------------------- -->
     <div class="alert alert-info font-weight-bold mt-5" role="alert">
       Datos de los tesistas
     </div>
@@ -219,7 +210,7 @@
         </div>
       </div>
       </div>
-      <!---------------------------------------------------------------------->
+      <!-- ---------------------------------------------------------------- -->
     </div>
       
     <div class="col-sm-4">
@@ -253,28 +244,6 @@
       document.getElementById("f2").submit();
     }*/
   }
-    /*var director = document.getElementById("director");
-    var seleccionado = director.selectedIndex;
-    if (seleccionado < 0) {
-      alert("Seleccione el director de la tesis");
-      return false;
-    }
-    var hayExterno = document.getElementById("hayExterno");
-    if (hayExterno.checked) {
-      var externo = document.getElementById("externo").value;
-      var institucion = document.getElementById("institucion").value;
-      if (externo == "") {
-        alert("Falta nombre del director externo");
-        return false;
-      }
-      if (institucion == "") {
-        alert("Falta institución del director externo");
-        return false;
-      }
-    }
-    alert("Todo bien: enviando formulario al servidor.");
-    return true;
-  }*/
 </script>
 
 <script src="js/dialogos.js"></script>

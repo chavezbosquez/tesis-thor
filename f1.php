@@ -51,7 +51,7 @@
         <input type="file" class="form-control-file" id="archivo" name="archivo" accept="application/pdf" required>
       </div>
     </div>
-    <div class="alert alert-info font-weight-bold" role="alert">
+    <div class="alert alert-info font-weight-bold mt-4" role="alert">
       Directores de la tesis
     </div>
     <fieldset class="border pt-4 pl-4 pr-4 mb-3">
@@ -139,7 +139,7 @@
       </div>
     </fieldset>
 
-    <div class="alert alert-info font-weight-bold" role="alert">
+    <div class="alert alert-info font-weight-bold mt-4" role="alert">
       Tesistas
     </div>
     <fieldset class="border pt-4 pl-4 pr-4 mb-3">
@@ -151,7 +151,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="nombre1" class="col-sm-3 col-form-label">Nombre</label>
+          <label for="nombre1" class="col-sm-3 col-form-label">Nombre/s</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" id="nombre1" name="nombre1" required>
           </div>
@@ -189,7 +189,7 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="nombre2" class="col-sm-3 col-form-label">Nombre</label>
+          <label for="nombre2" class="col-sm-3 col-form-label">Nombre/s</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" id="nombre2" name="nombre2">
           </div>
@@ -313,7 +313,7 @@
 
   /* Validar campos del formulario */
   function validarFormulario() {
-    alert("Validando data...");
+    /*alert("Validando data...");
     
     var director = document.getElementById("director");
     var seleccionado = director.selectedIndex;
@@ -335,7 +335,7 @@
       }
     }
     alert("Todo bien: enviando formulario al servidor.");
-    return true;
+    return true;*/
   }
 </script>
 

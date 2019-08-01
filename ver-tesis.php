@@ -4,6 +4,7 @@
     header("location: index.php");
   } else {
     $usuario = $_SESSION['login'];
+    $admin   = $_SESSION['admin'];
     $tituloPagina = "Tesis en proceso";
     include_once "php/header.php";
 ?>
