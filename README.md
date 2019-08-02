@@ -12,7 +12,6 @@ Equipo:
 * Adanowsky
 * Adrian
 * Fred
-* Eduardo
 * Gerardo
 
 ¡Gracias muchachos! ❤
