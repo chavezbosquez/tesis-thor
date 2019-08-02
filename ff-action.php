@@ -23,7 +23,8 @@
   Archivo::errorArchivo("archivo1");
   Archivo::errorArchivo("archivo2");
 
-  $directorio = "docs/";// . $folio;
+  $directorio = "docs/" . $folio . "/";
+  
   $nombreArchivo1 = $folio . "-FF.pdf";
   $_FILES["archivo1"]["name"] = $nombreArchivo1;
   $nombreArchivo2 = $folio . "-IMPRESION.pdf";

@@ -28,7 +28,8 @@
 
   Archivo::errorArchivo("archivo");
 
-  $directorio = "docs/";// . $folio;
+  $directorio = "docs/" . $folio . "/";
+
   $nombreArchivo = $folio . "-F7.pdf";
   $_FILES["archivo"]["name"] = $nombreArchivo;
   Archivo::cargarArchivo("archivo",$directorio);

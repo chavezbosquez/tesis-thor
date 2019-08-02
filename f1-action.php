@@ -64,10 +64,14 @@
   }
 
   /* 2- Crear la carpeta con el folio */
-  $directorio = "docs/";/* . $folio;
+  $oldmask = umask(0);
+  $directorio = "docs/" . $folio . "/";
   if ( !file_exists($directorio) ) {
     mkdir($directorio, 0777, true);
-  }*/
+  } else {
+    die("No es posible crear el directorio. Contacte al Administrador del Sistema.");
+  }
+  umask($oldmask);
 
   /* Nombrar archivo y enviarlo al servidor */
   $nombreArchivo = $folio . "-F1.pdf";

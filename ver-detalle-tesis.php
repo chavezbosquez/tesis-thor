@@ -189,31 +189,31 @@
                     extract($archivo);
                     if ( substr($tipoDocumento, 0, 2) == "FF" ) {
                       echo "<hr>";
-                      echo "<a href='docs/{$nombreArchivo}'>
+                      echo "<a href='docs/{$folio}/{$nombreArchivo}'>
                               <i class='fas fa-check-circle'></i>&nbsp;Liberación del Jurado
                             </a>";
                     } else if ( substr($tipoDocumento, 0, 1) == "F" ) {
-                        echo "<a href='docs/{$nombreArchivo}'>
+                        echo "<a href='docs/{$folio}/{$nombreArchivo}'>
                                 <i class='far fa-file-pdf'></i>&nbsp;Formato {$tipoDocumento}
                               </a>";
                       } else if ( substr($tipoDocumento, 0, 3) == "REV" ) {
-                        echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
+                        echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$folio}/{$nombreArchivo}'>
                                 <i class='fas fa-male'></i>&nbsp;Oficio {$tipoDocumento}
                               </a>";
                       } else if ( substr($tipoDocumento, 0, 3) == "JUR" ) {
-                        echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
+                        echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$folio}/{$nombreArchivo}'>
                                 <i class='fas fa-address-book'></i>&nbsp;Oficio {$tipoDocumento}
                               </a>";
                       } else if ( substr($tipoDocumento, 0, 2) == "OF" ) {
-                        echo "&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
+                        echo "&nbsp;&nbsp;<a href='docs/{$folio}/{$nombreArchivo}'>
                                 <i class='fas fa-pdf'></i>&nbsp;Oficio {$tipoDocumento}
                               </a>";
                       } else if ( substr($tipoDocumento, 0, 3) == "DIR" ) {
-                        echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$nombreArchivo}'>
+                        echo "&nbsp;&nbsp;&nbsp;&nbsp;<a href='docs/{$folio}/{$nombreArchivo}'>
                                 <i class='fas fa-user-circle'></i>&nbsp;Oficio {$tipoDocumento}
                               </a>";
                       } else if ( substr($tipoDocumento, 0, 3) == "IMP" ) {
-                        echo "<a href='docs/{$nombreArchivo}'>
+                        echo "<a href='docs/{$folio}/{$nombreArchivo}'>
                                 <i class='far fa-thumbs-up'></i>&nbsp;Autorización de Impresión
                               </a>";
                       }

@@ -19,6 +19,8 @@
   $pdo = BaseDeDatos::conectar();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+  $directorio = "docs/" . $folio . "/";
+
   /* Dependiendo del estatus se guardarán diferentes archivos */
   if ($estatus == "F2") {
     /* Guardar los oficios de la Comisión revisora */
@@ -26,7 +28,6 @@
     Archivo::errorArchivo("archivo2");
     Archivo::errorArchivo("archivo3");
 
-    $directorio = "docs/";// . $folio;
     $nombreArchivo1 = $folio . "-REVISOR1.pdf";
     $_FILES["archivo1"]["name"] = $nombreArchivo1;
     $nombreArchivo2 = $folio . "-REVISOR2.pdf";
@@ -61,7 +62,7 @@
     $fecha = $_POST['fecha'];
 
     Archivo::errorArchivo("archivo4");
-    $directorio = "docs/";// . $folio;
+
     $nombreArchivo4 = $folio . "-F3.pdf";
     $_FILES["archivo4"]["name"] = $nombreArchivo4;
     Archivo::cargarArchivo("archivo4",$directorio);

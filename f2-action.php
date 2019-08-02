@@ -51,7 +51,7 @@
     die ("Error al cargar el archivo. ¿Archivo demasiado grande? Código: " . $_FILES["archivo"]["error"] . "<br>");
   }
 
-  $directorio = "docs/";// . $folio;
+  $directorio = "docs/" . $folio . "/";
   
   $nombreArchivo = $folio . "-F2.pdf";
   $_FILES["archivo"]["name"] = $nombreArchivo;
