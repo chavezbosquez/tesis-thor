@@ -91,8 +91,8 @@
                                 <h5 class="card-title">José Adrian García López</h5>
                                 <p class="card-text">División Académica: DAIS
                                 <br> Carrera: Licenciatura en Sistemas Computacionales 
-                                <br>Matrícula: 152H8072
-                                <br>Semestre: 9</p>
+                                <br>Matrícula: 152H8071
+                                <br>Semestre: 8</p>
                                 <p><small class="text-muted">Verano de Código 2019</small></p>
                             </div>
                         </div>
