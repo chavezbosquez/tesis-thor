@@ -53,6 +53,8 @@
     $cons->execute( array("REVISOR3",$nombreArchivo3,$folio,$hoy) );
   
     /* Bitácora del Sistema */
+    date_default_timezone_set("America/Mexico_City");
+    $hoy = date("Y-m-d H:i:s");
     $sql = "INSERT INTO bitacora(tesis,operacion,fecha,usuario) VALUES(?,?,?,?)";
     $cons = $pdo->prepare($sql);
     $cons->execute( array($folio,"Registro del Comité Revisor",$hoy,$usuario) );
@@ -79,6 +81,8 @@
     $cons->execute( array("F3",$nombreArchivo4,$folio,$fecha) );
     
     /* Bitácora del Sistema */
+    date_default_timezone_set("America/Mexico_City");
+    $hoy = date("Y-m-d H:i:s");
     $sql = "INSERT INTO bitacora(tesis,operacion,fecha,usuario) VALUES(?,?,?,?)";
     $cons = $pdo->prepare($sql);
     $cons->execute( array($folio,"Registro del F3",$hoy,$usuario) );

@@ -62,7 +62,6 @@
   /***************************************************************************/
   /****************************** INSERTAR DATOS *****************************/
   /***************************************************************************/
-  $hoy = date("y/m/d", time());
   $pdo = BaseDeDatos::conectar();
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
@@ -114,6 +113,8 @@
   $cons->execute( array("F2",$nombreArchivo,$folio,$fecha) );
 
   /* Bitácora del Sistema */
+  date_default_timezone_set("America/Mexico_City");
+  $hoy = date("Y-m-d H:i:s");
   $sql = "INSERT INTO bitacora(tesis,operacion,fecha,usuario) VALUES(?,?,?,?)";
   $cons = $pdo->prepare($sql);
   $cons->execute( array($folio,"Registro del F2",$hoy,$usuario) );

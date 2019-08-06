@@ -63,6 +63,8 @@
     $cons->execute( array("JURADO5",$nombreArchivo5,$folio,$hoy) );
   
     /* Bitácora del Sistema */
+    date_default_timezone_set("America/Mexico_City");
+    $hoy = date("Y-m-d H:i:s");
     $sql = "INSERT INTO bitacora(tesis,operacion,fecha,usuario) VALUES(?,?,?,?)";
     $cons = $pdo->prepare($sql);
     $cons->execute( array($folio,"Registro del Jurado",$hoy,$usuario) );
@@ -89,6 +91,8 @@
     $cons->execute( array("F8",$nombreArchivo6,$folio,$fecha) );
     
     /* Bitácora del Sistema */
+    date_default_timezone_set("America/Mexico_City");
+    $hoy = date("Y-m-d H:i:s");
     $sql = "INSERT INTO bitacora(tesis,operacion,fecha,usuario) VALUES(?,?,?,?)";
     $cons = $pdo->prepare($sql);
     $cons->execute( array($folio,"Registro del F8",$hoy,$usuario) );

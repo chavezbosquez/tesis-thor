@@ -303,7 +303,7 @@
               //extract($evento);
               echo "<tr>";
               echo "<td>{$evento['operacion']}</td>";
-              $fecha = date("d/m/Y",strtotime($evento['fecha']));
+              $fecha = date("d-m-Y h:i a",strtotime($evento['fecha']));
               echo "<td>{$fecha}</td>";
               echo "<td>{$evento['usuario']}</td>";
               echo "</tr>";

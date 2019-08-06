@@ -46,6 +46,8 @@
   $cons->execute( array("IMPRESION",$nombreArchivo2,$folio,$fecha) );
 
   /* Bitácora del Sistema */
+  date_default_timezone_set("America/Mexico_City");
+  $hoy = date("Y-m-d H:i:s");
   $sql = "INSERT INTO bitacora(tesis,operacion,fecha,usuario) VALUES(?,?,?,?)";
   $cons = $pdo->prepare($sql);
   $cons->execute( array($folio,"Formatos Finales",$hoy,$usuario) );

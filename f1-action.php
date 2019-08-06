@@ -107,7 +107,8 @@
   $cons->execute( array("F1",$nombreArchivo,$folio,$fecha) );
 
   /* Bitácora del Sistema */
-  $hoy = date("y/m/d", time());
+  date_default_timezone_set("America/Mexico_City");
+  $hoy = date("Y-m-d H:i:s");//date("y/m/d", time());
   $sql = "INSERT INTO bitacora(tesis,operacion,fecha,usuario) VALUES(?,?,?,?)";
   $cons = $pdo->prepare($sql);
   $cons->execute( array($folio,"Registro del F1",$hoy,$usuario) );
