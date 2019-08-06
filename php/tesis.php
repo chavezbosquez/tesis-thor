@@ -84,14 +84,16 @@ class Tesis {
   }
 
   /* Obtener la fecha límite para titularse */
-  public static function getFechaLimite($folio) {
+  public static function getFechaFatal($folio) {
 		require_once 'bd.php';
 		$pdo = BaseDeDatos::conectar();
-    $sql = "SELECT fecha FROM documento WHERE tesis='{$folio}' AND tipo_documento='F4' LIMIT 1";
+    //$sql = "SELECT fecha FROM documento WHERE tesis='{$folio}' AND tipo_documento='F4' LIMIT 1";
+    $sql = "SELECT fecha_fatal FROM tesis WHERE folio='{$folio}' LIMIT 1";
     $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
     $f = $cons->fetchColumn();
-    
-    //$f = Tesis::getFechaLimite($folio);
+    if ( !isset($f) ) {
+      return(null);
+    }
     $f = strtotime($f);
     $n = strtotime('+ 1 year', $f);
     $fecha = date('d/m/Y', $n);

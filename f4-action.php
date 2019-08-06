@@ -42,7 +42,7 @@
   /****************************** INSERTAR DATOS *****************************/
     
   /* Guardar datos del F4 */
-  $sql = "UPDATE tesis SET estatus='F4' WHERE folio='{$folio}'";
+  $sql = "UPDATE tesis SET estatus='F4',fecha_fatal='{$fecha}' WHERE folio='{$folio}'";
   $cons = $pdo->prepare($sql);
   $cons->execute();
 

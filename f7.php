@@ -29,7 +29,7 @@
     if ( !isset($laTesis['nombre']) ) {
       header("location: inicio.php");
     }
-    $fechaFatal = Tesis::getFechaLimite($folio);
+    $fechaFatal = Tesis::getFechaFatal($folio);
 ?>
 <!-- Encabezado de página -->
 

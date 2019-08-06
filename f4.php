@@ -64,7 +64,7 @@
       </div>
       <div class="form-group row">
         <label for="archivo1" class="font-weight-bold col-sm-5 col-form-label">
-          Oficio de solicitud 
+          Oficio de solicitud
         </label>
         <div class="col-sm-7">
           <input type="file" class="form-control-file" id="archivo1" name="archivo1" accept="application/pdf" required>

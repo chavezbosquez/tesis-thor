@@ -33,10 +33,10 @@
     $elJurado4 = Profesor::getDatosProfesor($laTesis['jurado4']);
     $elJurado5 = Profesor::getDatosProfesor($laTesis['jurado5']);
 
-    $fechaFatal = Tesis::getFechaLimite($folio);
+    $fechaFatal = Tesis::getFechaFatal($folio);
     //date_default_timezone_set( string $timezone_identifier );
 
-    /*$f = Tesis::getFechaLimite($folio);
+    /*$f = Tesis::getFechaFatal($folio);
     $f = strtotime($f);
     $new_date = strtotime('+ 1 year', $f);
     $fechaFatal = date('d/m/Y', $new_date);*/

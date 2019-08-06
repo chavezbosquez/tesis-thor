@@ -66,15 +66,6 @@
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
   /* Guardar primero los datos de tesistas */
-  /*$sql = "UPDATE tesista SET
-            correo='{$correo1}',
-            telefono='{$telefono1a}',
-            movil='{$telefono1b}',
-            domicilio='{$domicilio1}',
-            localidad='{$localidad1}'
-          WHERE matricula='{$matriculaTesista1}'";
-  $cons = $pdo->prepare($sql);
-  $cons->execute();*/
   $sql = "UPDATE tesista SET
             correo=?,
             telefono=?,
@@ -86,19 +77,11 @@
   $cons->execute( array($correo1,$telefono1a,$telefono1b,$domicilio1,$localidad1,$matriculaTesista1) );
 
   if ($numTesistas == 2) {
-    /*$sql = "UPDATE tesista SET
-            correo=?,
-            telefono=?,
-            movil=?,
-            domicilio=?,
-            localidad=?
-          WHERE matricula=?";
-    $cons = $pdo->prepare($sql);*/
     $cons->execute( array($correo2,$telefono2a,$telefono2b,$domicilio2,$localidad2,$matriculaTesista2) );
   }
 
   /* Guardar datos del F2 */
-  $sql = "UPDATE tesis SET 
+  $sql = "UPDATE tesis SET
             estatus='F2',
             revisor1='{$revisor1}',
             revisor2='{$revisor2}',
