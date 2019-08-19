@@ -146,13 +146,13 @@
           </div>
         </div>
         <div class="form-group row">
-          <label for="telefono1a" class="col-sm-3 col-form-label">Teléfono de casa</label>
+          <label for="telefono1a" class="col-sm-3 col-form-label">Teléfono personal</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" id="telefono1a" name="telefono1a">
           </div>
         </div>
         <div class="form-group row">
-          <label for="telefono1b" class="col-sm-3 col-form-label">Teléfono personal</label>
+          <label for="telefono1b" class="col-sm-3 col-form-label">Teléfono de casa</label>
           <div class="col-sm-5">
             <input type="text" class="form-control" id="telefono1b" name="telefono1b">
           </div>

@@ -42,7 +42,8 @@
     <div class="form-group row">
       <label for="nombre" class="font-weight-bold col-sm-2 col-form-label">Nombre</label>
       <div class="col-sm-10">
-        <textarea class="form-control" id="nombre" name="nombre" required></textarea>
+        <textarea class="form-control" id="nombre" name="nombre"
+          placeholder="Asegúrate de remover saltos de línea y caracteres extraños por favor" required></textarea>
       </div>
     </div>
     <div class="form-group row">

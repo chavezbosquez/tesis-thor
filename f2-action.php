@@ -68,8 +68,8 @@
   /* Guardar primero los datos de tesistas */
   $sql = "UPDATE tesista SET
             correo=?,
-            telefono=?,
             movil=?,
+            telefono=?,
             domicilio=?,
             localidad=?
           WHERE matricula=?";
