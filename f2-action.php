@@ -8,6 +8,7 @@
   }
   $usuario = $_SESSION['login'];
   require_once 'php/bd.php';
+  require_once 'php/utils.php';
   
   /* Datos generales */
 	$folio = $_POST['folio'];
@@ -21,11 +22,11 @@
   /* Datos del primer tesista*/
   $numTesistas = 1;
   $matriculaTesista1 = $_POST['tesista1'];
-  $correo1    = $_POST['correo1'];
-  $telefono1a = $_POST['telefono1a'];
-  $telefono1b = $_POST['telefono1b'];
-  $domicilio1 = $_POST['domicilio1'];
-  $localidad1 = $_POST['localidad1'];
+  $correo1    = Utils::limpiarTexto($_POST['correo1']);
+  $telefono1a = Utils::limpiarTexto($_POST['telefono1a']);
+  $telefono1b = Utils::limpiarTexto($_POST['telefono1b']);
+  $domicilio1 = Utils::limpiarTexto($_POST['domicilio1']);
+  $localidad1 = Utils::limpiarTexto($_POST['localidad1']);
   /* Hay segundo tesista */
   $matriculaTesista2 = null;
   $correo2    = null;
@@ -36,11 +37,11 @@
   if ( isset($_POST['hayTesista2']) ) {
     $numTesistas = 2;
     $matriculaTesista2 = $_POST['tesista2'];
-    $correo2    = $_POST['correo2'];
-    $telefono2a = $_POST['telefono2a'];
-    $telefono2b = $_POST['telefono2b'];
-    $domicilio2 = $_POST['domicilio2'];
-    $localidad2 = $_POST['localidad2'];
+    $correo2    = Utils::limpiarTexto($_POST['correo2']);
+    $telefono2a = Utils::limpiarTexto($_POST['telefono2a']);
+    $telefono2b = Utils::limpiarTexto($_POST['telefono2b']);
+    $domicilio2 = Utils::limpiarTexto($_POST['domicilio2']);
+    $localidad2 = Utils::limpiarTexto($_POST['localidad2']);
   }
   
   /* Gestión del archivo: 

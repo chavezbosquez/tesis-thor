@@ -196,12 +196,12 @@
                   bootbox.alert('¡No existe tesis asociada a la matrícula <strong>{$matricula}</strong>!'); 
               </script>";
       } else if ($error == "2") { /* Tesis concluída */
-        $tesis = htmlspecialchars($_GET['tesis']);
+        $tesis = $_GET['tesis'];
         echo "<script> 
                   bootbox.alert('La tesis <strong>{$tesis}</strong> ha concluido. Revise los detalles de la tesis en la tabla de Tesis concluídas.');
               </script>";
       } else if ($error == "3") { /* No existe el folio */
-        $folio = htmlspecialchars($_GET['folio']);
+        $folio = $_GET['folio'];
         echo "<script> 
                   bootbox.alert('¡No existe tesis con folio <strong>{$folio}</strong>!');
               </script>";

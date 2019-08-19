@@ -11,5 +11,11 @@ class Utils {
     return($hoy);
   }
 
+  public static function limpiarTexto($texto) {
+    $buffer = str_replace(array("\r", "\n"), ' ', $texto);
+    $buffer = trim($buffer);
+    return($buffer);
+  }
+
 }
 ?>

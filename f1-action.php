@@ -11,11 +11,12 @@
   $usuario = $_SESSION['login'];
   /* Clase que contiene la conexión a la base de datos */
   require_once 'php/bd.php';
+  require_once 'php/utils.php';
   
   /* Datos generales */
-  $folio = $_POST['folio'];
-  $nombre = $_POST['nombre'];
-  $fecha = $_POST['fecha'];
+  $folio  = Utils::limpiarTexto($_POST['folio']);
+  $nombre = Utils::limpiarTexto($_POST['nombre']);
+  $fecha  = $_POST['fecha'];
   
   /* Director de tesis */
   $director = $_POST['director'];
@@ -32,14 +33,14 @@
   $externo     = null;
   $institucion = null;
   if ($hayExterno) {
-    $externo     = $_POST['externo'];
-    $institucion = $_POST['institucion'];
+    $externo     = Utils::limpiarTexto($_POST['externo']);
+    $institucion = Utils::limpiarTexto($_POST['institucion']);
   }
 
   /* Datos del primer tesista*/
-  $matriculaTesista1 = $_POST['matricula1'];
-  $nombreTesista1    = $_POST['nombre1'];
-  $apellidosTesista1 = $_POST['apellidos1'];
+  $matriculaTesista1 = Utils::limpiarTexto($_POST['matricula1']);
+  $nombreTesista1    = Utils::limpiarTexto($_POST['nombre1']);
+  $apellidosTesista1 = Utils::limpiarTexto($_POST['apellidos1']);
   $carreraTesista1   = $_POST['carrera1'];
   /* ¿Hay segundo tesista? */
   $hayTesista2 = isset($_POST['hayTesista2']);
@@ -48,9 +49,9 @@
   $apellidosTesista2 = null;
   $carreraTesista2   = null;
   if ($hayTesista2) {
-    $matriculaTesista2 = $_POST['matricula2'];
-    $nombreTesista2    = $_POST['nombre2'];
-    $apellidosTesista2 = $_POST['apellidos2'];
+    $matriculaTesista2 = Utils::limpiarTexto($_POST['matricula2']);
+    $nombreTesista2    = Utils::limpiarTexto($_POST['nombre2']);
+    $apellidosTesista2 = Utils::limpiarTexto($_POST['apellidos2']);
     $carreraTesista2   = $_POST['carrera2'];
   }
 
