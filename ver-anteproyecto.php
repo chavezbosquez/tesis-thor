@@ -28,6 +28,7 @@
     <tbody id="tabla">
       <?php
         require_once 'php/bd.php';
+        require_once 'php/tesista.php';
         require_once 'php/cuerpo_academico.php';
         $pdo = BaseDeDatos::conectar();
         $sql = "SELECT folio,nombre,tesista1,tesista2,director,estatus FROM tesis WHERE estatus LIKE 'F1%' OR estatus LIKE 'F2%' OR estatus LIKE 'F3%'";
@@ -36,9 +37,11 @@
           echo "<tr>";
           echo "<td>{$folio}</td>";
           echo "<td>{$nombre}</td>";
-          echo "<td>{$tesista1}</td>";
+          $nombre1 = Tesista::getNombre($tesista1);
+          echo "<td>{$nombre1['nombre']}</td>";
           if ( isset($tesista2) ) {
-            echo "<td>{$tesista2}</td>";
+            $nombre2 = Tesista::getNombre($tesista2);
+            echo "<td>{$nombre2['nombre']}</td>";
           } else {
             echo "<td class='text-center'>—</td>";
           }
