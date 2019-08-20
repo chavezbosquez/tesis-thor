@@ -37,11 +37,11 @@
           echo "<tr>";
           echo "<td>{$folio}</td>";
           echo "<td>{$nombre}</td>";
-          $nombre1 = Tesista::getNombre($tesista1);
-          echo "<td>{$nombre1['nombre']}</td>";
+          $elTesista1 = Tesista::getNombre($tesista1);
+          echo "<td>{$elTesista1['nombre']}</td>";
           if ( isset($tesista2) ) {
-            $nombre2 = Tesista::getNombre($tesista2);
-            echo "<td>{$nombre2['nombre']}</td>";
+            $elTesista2 = Tesista::getNombre($tesista2);
+            echo "<td>{$elTesista2['nombre']}</td>";
           } else {
             echo "<td class='text-center'>—</td>";
           }
