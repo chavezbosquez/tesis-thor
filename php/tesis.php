@@ -5,15 +5,6 @@ class Tesis {
 		exit('Función init no permitida');
 	}
   
-  private static function getData($sql) {
-    require_once 'bd.php';
-    $pdo = BaseDeDatos::conectar();
-    $cons = $pdo->query($sql, PDO::FETCH_ASSOC);
-    $registro = $cons->fetch();
-		BaseDeDatos::desconectar();
-    return($registro);
-  }
-
 	public static function getTodosLosDatos($folio) {
 		require_once 'bd.php';
 		$pdo = BaseDeDatos::conectar();
