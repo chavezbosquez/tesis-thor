@@ -1,4 +1,5 @@
 <?php
+/* Consulta de Cuerpos Académicos */
 class CuerpoAcademico {
 	public static $listaCuerposAcademicos = null;
 	
