@@ -1,4 +1,5 @@
 <?php
+/* Conexión global a la base de datos */
 class BaseDeDatos {
 	private static $bd       = 'tesis_thor';
 	private static $host     = 'localhost';
