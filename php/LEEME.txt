@@ -1,0 +1,1 @@
+Aquí se encuentran todas las clases PHP, así como los encabezados y pies de página genéricos.
