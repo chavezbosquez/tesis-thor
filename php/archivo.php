@@ -1,4 +1,5 @@
 <?php
+/* Gestión de archivos (Formatos F y Oficios) en el servidor */
 class Archivo {
 
 	public function __construct() {
