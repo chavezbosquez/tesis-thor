@@ -1,4 +1,5 @@
 <?php
+/* Gestión de la bitácora del Sistema */
 class Bitacora {
 
 	public function __construct() {
