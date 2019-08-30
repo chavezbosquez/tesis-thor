@@ -7,6 +7,9 @@
     $admin   = $_SESSION['admin'];
     $tituloPagina = "Administración de THOR";
     include_once "php/header.php";
+
+    require_once 'php/usuario.php';
+    $listaUsuarios = Usuario::getUsuarios();
 ?>
 
 <!-- Encabezado de página -->
@@ -18,38 +21,31 @@
     <thead>
       <tr>
         <th class="text-center">Usuario</th>
-        <th class="text-center">Nombre</th>
         <th class="text-center">Contraseña</th>
+        <th class="text-center">Nombre</th>
         <th class="text-center">Fecha de alta</th>
         <th class="text-center">Activo</th>
-        <th class="text-center">Admin</th>
+        <!--<th class="text-center">Admin</th>-->
+        <th class="text-center">Opciones</th>
       </tr>
     </thead>
     <tbody id="tabla">
       <?php
-        require_once 'php/bd.php';
-        require_once 'php/cuerpo_academico.php';
-        $pdo = BaseDeDatos::conectar();
-        $sql = "SELECT folio,nombre,tesista1,tesista2,director,estatus 
-                  FROM tesis 
-                  WHERE estatus LIKE 'F4%' OR estatus LIKE 'F5%' OR estatus LIKE 'F6%' 
-                     OR estatus LIKE 'F7%' OR estatus LIKE 'F8%'";
-        foreach ($pdo->query($sql,PDO::FETCH_ASSOC) as $registro) {
-          extract($registro);
+        foreach ($listaUsuarios as $usuario) {
+          extract($usuario);
           echo "<tr>";
-          echo "<td>{$folio}</td>";
-          echo "<td>{$nombre}</td>";
-          echo "<td>{$tesista1}</td>";
-          if ( isset($tesista2) ) {
-            echo "<td>{$tesista2}</td>";
+          echo "<td>{$correo}</td>";
+          echo "<td class='text-white'>{$contra}</td>";
+          echo "<td>{$nombreCompleto}</td>";
+          $fecha = date("d-m-Y",strtotime($fecha));
+          echo "<td class='text-center'>{$fecha}</td>";
+          if ( strcasecmp($estatus,"Activo") == 0 ) {
+            echo "<td class='text-center'>Sí</td>";
           } else {
-            echo "<td class='text-center'>—</td>";
+            echo "<td class='text-center'>No</td>";
           }
-          $ca = CuerpoAcademico::getCuerpoAcademico($director);
-          echo "<td>{$ca}</td>";
-          echo "<td class='text-center font-weight-bold'>{$estatus}</td>";
-          echo "<td class='text-center table-fit'>";
-          echo "</td>";
+          //echo "<td>{$administrador}</td>";
+          echo "<td class='text-center'><button class='btn btn-sm btn-danger'>Dar de baja</button></td>";
           echo "</tr>";
         }
         BaseDeDatos::desconectar();
