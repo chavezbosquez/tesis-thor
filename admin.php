@@ -15,8 +15,11 @@
 <!-- Encabezado de página -->
 <?php include_once "php/header2.php"; ?>
 
+<div class="clearfix m-1">
+    <h4 class="float-left">Usuarios</h4>
+    <button class="btn btn-info float-right disabled">Nuevo usuario</button>
+  </div>
 <div class="row m-1">
-  <h3>Usuarios de THOR</h3>
   <table class="table table-striped table-bordered table-hover table-condensed table-sm">
     <thead>
       <tr>
@@ -53,6 +56,11 @@
     </tbody>
   </table>
 </div>
+<p></p>
+<fieldset class="m-1 border p-2 pb-3">
+  <legend class="w-auto">Operaciones avanzadas</legend>
+  <button class="btn btn-success disabled">Sincronizar THOR</button>
+</fieldset>
 </main>
 
 <script src="js/dialogos.js"></script>
