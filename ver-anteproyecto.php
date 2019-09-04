@@ -12,7 +12,17 @@
 <!-- Encabezado de página -->
 <?php include_once "php/header2.php"; ?>
 
-<div class="row">
+<div class="form-row">
+  <div class="col-5">
+  <label class="sr-only" for="filtro">Filtro</label>
+    <div class="input-group mb-2">
+      <div class="input-group-prepend">
+        <div class="input-group-text">Filtrar</div>
+      </div>
+      <input type="text" class="form-control" id="filtro">
+  </div>
+</div>
+<div class="row m-1">
   <table class="table table-striped table-bordered table-hover table-condensed table-sm">
     <thead class="bg-dark text-white">
       <tr>
