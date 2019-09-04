@@ -36,6 +36,7 @@
       <?php
         foreach ($listaUsuarios as $usuario) {
           extract($usuario);
+          $activar = false;
           echo "<tr>";
           echo "<td>{$correo}</td>";
           echo "<td class='text-white'>{$contra}</td>";
@@ -44,11 +45,13 @@
           echo "<td class='text-center'>{$fecha}</td>";
           if ( strcasecmp($estatus,"Activo") == 0 ) {
             echo "<td class='text-center'>Sí</td>";
+            $activar = false;
+            echo "<td class='text-center'><a href='php/activar-usuario.php?usuario={$correo}&activar={$activar}' class='btn btn-sm btn-danger'>Dar de baja</a></td>";
           } else {
             echo "<td class='text-center'>No</td>";
+            $activar = true;
           }
           //echo "<td>{$administrador}</td>";
-          echo "<td class='text-center'><button class='btn btn-sm btn-danger'>Dar de baja</button></td>";
           echo "</tr>";
         }
         BaseDeDatos::desconectar();
