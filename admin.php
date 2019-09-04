@@ -38,18 +38,19 @@
           extract($usuario);
           $activar = false;
           echo "<tr>";
-          echo "<td>{$correo}</td>";
-          echo "<td class='text-white'>{$contra}</td>";
-          echo "<td>{$nombreCompleto}</td>";
+          echo "<td class='align-middle'>{$correo}</td>";
+          echo "<td class='align-middle text-white'>{$contra}</td>";
+          echo "<td class='align-middle'>{$nombreCompleto}</td>";
           $fecha = date("d-m-Y",strtotime($fecha));
-          echo "<td class='text-center'>{$fecha}</td>";
+          echo "<td class='align-middle text-center'>{$fecha}</td>";
           if ( strcasecmp($estatus,"Activo") == 0 ) {
-            echo "<td class='text-center'>Sí</td>";
+            echo "<td class='align-middle text-center'>Sí</td>";
             $activar = false;
-            echo "<td class='text-center'><a href='php/activar-usuario.php?usuario={$correo}&activar={$activar}' class='btn btn-sm btn-danger'>Dar de baja</a></td>";
+            echo "<td class='align-middle text-center'><a href='php/activar-usuario.php?usuario={$correo}&activar={$activar}' class='btn btn-sm btn-danger'>Dar de baja</a></td>";
           } else {
-            echo "<td class='text-center'>No</td>";
+            echo "<td class='align-middle text-center'>No</td>";
             $activar = true;
+            echo "<td class='align-middle text-center'>—</td>";
           }
           //echo "<td>{$administrador}</td>";
           echo "</tr>";
