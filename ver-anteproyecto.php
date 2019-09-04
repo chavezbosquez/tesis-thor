@@ -17,7 +17,7 @@
   <label class="sr-only" for="filtro">Filtro</label>
     <div class="input-group mb-2">
       <div class="input-group-prepend">
-        <div class="input-group-text">Filtrar</div>
+        <div class="input-group-text"><i class="fas fa-filter"></i>&nbsp;Filtrar</div>
       </div>
       <input type="text" class="form-control" id="filtro">
   </div>
@@ -45,28 +45,28 @@
         foreach ($pdo->query($sql,PDO::FETCH_ASSOC) as $registro) {
           extract($registro);
           echo "<tr>";
-          echo "<td>{$folio}</td>";
-          echo "<td>{$nombre}</td>";
+          echo "<td class='align-middle'>{$folio}</td>";
+          echo "<td class='align-middle'>{$nombre}</td>";
           $elTesista1 = Tesista::getNombre($tesista1);
-          echo "<td>{$elTesista1['nombre']}</td>";
+          echo "<td class='align-middle'>{$elTesista1['nombre']}</td>";
           if ( isset($tesista2) ) {
             $elTesista2 = Tesista::getNombre($tesista2);
-            echo "<td>{$elTesista2['nombre']}</td>";
+            echo "<td class='align-middle'>{$elTesista2['nombre']}</td>";
           } else {
-            echo "<td class='text-center'>—</td>";
+            echo "<td class='align-middle text-center'>—</td>";
           }
           /*$cons = $pdo->query("SELECT nombre FROM cuerpo_academico WHERE clave=(
                                 SELECT cuerpo_academico FROM profesor WHERE clave='{$director}' LIMIT 1)",PDO::FETCH_ASSOC);
           $ca = $cons->fetchColumn();*/
           $ca = CuerpoAcademico::getCuerpoAcademico($director);
-          echo "<td>{$ca}</td>";
-          echo "<td class='text-center font-weight-bold'>{$estatus}</td>";
+          echo "<td class='align-middle'>{$ca}</td>";
+          echo "<td class='align-middle text-center font-weight-bold'>{$estatus}</td>";
           /*$mijson = json_encode($registro, JSON_PRETTY_PRINT);
           $mijson= str_replace('"', "*", $mijson);
           $mijson= str_replace('{', "+", $mijson);
             $mijson= str_replace('}', "+", $mijson);
           echo "<td>{$mijson}</td>";*/
-          echo "<td class='text-center table-fit'>";
+          echo "<td class='align-middle text-center table-fit'>";
           echo "<button class='btn btn-info' alt='Ver detalles del anteproyecto' onclick='mostrarDetalles(\"{$folio}\")'>
                   <!--&nbsp;<i class='fas fa-info'></i>&nbsp;-->
                   <i class='fas fa-info-circle'></i>&nbsp;
@@ -98,6 +98,17 @@
   </table>
 </div>
 </main>
+
+<script>
+  $(document).ready(function(){
+    $("#filtro").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#tabla tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  });
+</script>
 
 <script src="js/dialogos.js"></script>
 
