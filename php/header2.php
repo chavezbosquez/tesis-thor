@@ -20,7 +20,7 @@
         </ol>
       </nav>
     </h2>
-   
+   <!-- Usuario actual -->
     <div class="dropdown show float-right mr-2">
       <button class="btn dropdown-toggle text-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Usuario: <?php echo $usuario; ?>
