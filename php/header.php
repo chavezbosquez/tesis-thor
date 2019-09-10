@@ -26,10 +26,10 @@
   <!-- bootbox code -->
   <script src="js/bootbox.min.js"></script>
   <script src="js/bootbox.locales.min.js"></script>
-  
 </head>
 
 <body role="document">
+  <!-- Encabezado general -->
   <header>
     <div class="jumbotron display-4 text-white rounded-0">
       <div class="container pull-left">
