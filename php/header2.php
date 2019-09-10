@@ -1,3 +1,4 @@
+<!-- Menú de navegación global -->
 <main role="main" class="card container container-fluid body-content rounded p-4">
   <div class="clearfix">
     <h2 class="float-left">
