@@ -1,4 +1,4 @@
-<!-- Encabezado general para todas las páginas -->
+<!-- Cabecera general para todas las páginas -->
 <!DOCTYPE html>
 <html lang="es">
 

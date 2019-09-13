@@ -26,7 +26,6 @@
         Usuario: <?php echo $usuario; ?>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <!--<h6 class="dropdown-header">Administración</h6>-->
         <?php if ($admin) { ?>
           <a class="dropdown-item" href="admin.php">
             <i class="fas fa-cogs"></i>
