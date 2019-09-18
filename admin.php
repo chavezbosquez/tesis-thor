@@ -63,7 +63,7 @@
 <p></p>
 <fieldset class="m-1 border p-2 pb-3">
   <legend class="w-auto">Operaciones avanzadas</legend>
-  <button class="btn btn-success disabled">Sincronizar THOR</button>
+  <a href="php/actualizar.php" class="btn btn-success">Sincronizar THOR</a>
 </fieldset>
 </main>
 
