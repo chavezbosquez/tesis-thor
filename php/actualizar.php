@@ -1,5 +1,10 @@
 <?php
   /* Actualizar THOR desde GitHub */
-  $salida = shell_exec('ls -la');
-  echo $salida;
+  error_reporting(E_ALL); 
+  try {
+    echo shell_exec('dir');
+    echo shell_exec('C:\Users\operador\Desktop\PortableGit\cmd\git.exe pull origin master');
+  } catch (Exception $e) {
+    echo $e->getMessage();
+  }
 ?>
