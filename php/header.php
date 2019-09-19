@@ -27,7 +27,7 @@
   <script src="js/bootbox.min.js"></script>
   <script src="js/bootbox.locales.min.js"></script>
 </head>
-
+<!-- Inicio del documento -->
 <body role="document">
   <!-- Encabezado general -->
   <header>
