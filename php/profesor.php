@@ -1,4 +1,5 @@
 <?php
+/* Consulta de profesores */
 class Profesor {
 	public static $listaProfesores = null;
 	
