@@ -1,7 +1,8 @@
 <?php
   // Gestiona el acceso a THOR. Dos tipos de usuario: 
-  // 0 - Convencional
+  // 0 - Auxiliar
   // 1 - Administador
+  // 2 - ¿Solo lectura?
   session_start();
   $clave = $_POST['clave'];
   $contra = $_POST['contra'];
@@ -30,6 +31,6 @@
   BaseDeDatos::desconectar();
 ?>
 <script> 
-  //Redireccionar con el formulario creado
+  //Redireccionar a la página correspondiente usando el formulario creado
   document.formulario.submit();
 </script>
