@@ -1,4 +1,5 @@
 <?php
+/* Funciones auxiliares */
 class Utils {
 
 	public function __construct() {
