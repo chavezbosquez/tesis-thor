@@ -1,4 +1,5 @@
 <?php
+/* Gestión de usuarios */
 class Usuario {
 	public static $listaUsuarios = null;
 	
