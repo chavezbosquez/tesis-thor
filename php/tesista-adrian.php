@@ -1,4 +1,5 @@
 <?php
+  /* Módulo de consultas, por matrícula del alumno o por folio de la tesis */
   session_start();
   if ($_SESSION['login'] == '') {
     header("location: index.php");
