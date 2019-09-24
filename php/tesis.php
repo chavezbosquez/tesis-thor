@@ -1,4 +1,5 @@
 <?php
+/* Consulta de tesis */
 class Tesis {
 
 	public function __construct() {
