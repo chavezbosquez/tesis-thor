@@ -64,11 +64,25 @@
 <fieldset class="m-1 border p-2 pb-3">
   <legend class="w-auto">Operaciones avanzadas</legend>
   <button class="btn btn-info disabled mr-2">Nuevo usuario</button>
-  <a href="php/actualizar.php" class="btn btn-success">Sincronizar THOR</a>
+  <button class="btn btn-success" id="actualizar">Sincronizar THOR</button>
+  <!--<a href="php/actualizar.php" class="btn btn-success" id="actualizar">Sincronizar THOR</a>-->
 </fieldset>
 </main>
 
 <script src="js/dialogos.js"></script>
+<script>
+    $(document).ready(function() {
+      $("#actualizar").click(function() {
+        $.ajax({
+          url: "php/actualizar.php",
+          success: function(result) {
+            //$('#salida').val(result);
+            bootbox.alert("<h3>Sistema THOR actualizado</h3>" + result);
+            $("#actualizar").attr("disabled", true);
+        }});
+      });
+    });
+  </script>
 
 <!-- Pie de página -->
 <?php
