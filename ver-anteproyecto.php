@@ -19,7 +19,7 @@
       <div class="input-group-prepend">
         <div class="input-group-text"><i class="fas fa-filter"></i>&nbsp;Filtrar</div>
       </div>
-      <input type="text" class="form-control" id="filtro">
+      <input type="text" class="form-control" id="filtro" autofocus>
   </div>
 </div>
 <div class="row m-1">
