@@ -77,7 +77,10 @@
           url: "php/actualizar.php",
           success: function(result) {
             //$('#salida').val(result);
-            bootbox.alert("<h3>Sistema THOR actualizado</h3>" + result);
+            bootbox.alert("<h3>Sistema THOR actualizado</h3>" + 
+                          "<textarea cols='47' rows='10' readonly>" +
+                          result +
+                          "</textarea>");
             $("#actualizar").attr("disabled", true);
         }});
       });
