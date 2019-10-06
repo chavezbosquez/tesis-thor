@@ -64,7 +64,7 @@
 <fieldset class="m-1 border p-2 pb-3">
   <legend class="w-auto">Operaciones avanzadas</legend>
   <button class="btn btn-info disabled mr-2">Nuevo usuario</button>
-  <button class="btn btn-success" id="actualizar">Sincronizar THOR</button>
+  <button class="btn btn-success" id="actualizar">Actualizar THOR</button>
   <!--<a href="php/actualizar.php" class="btn btn-success" id="actualizar">Sincronizar THOR</a>-->
 </fieldset>
 </main>
