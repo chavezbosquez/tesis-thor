@@ -24,6 +24,7 @@ class Usuario {
 		return self::$listaUsuarios;
 	}
 
+	/* Habilita/deshabilita el acceso del usuario al Sistema */
 	public static function activarUsuario($correo,$activar) {
 		require_once 'bd.php';
 		$pdo = BaseDeDatos::conectar();
