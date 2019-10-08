@@ -1,6 +1,10 @@
 <?php
 /* Funciones auxiliares */
+!defined('INACTIVO') && define('INACTIVO','Inactivo');
+
 class Utils {
+  public static $ACTIVO = "Activo";
+  public static $NO_ACTIVO = "Inactivo";
 
 	public function __construct() {
 		exit('Función init no permitida');

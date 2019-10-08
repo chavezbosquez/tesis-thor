@@ -27,12 +27,14 @@ class Usuario {
 	/* Habilita/deshabilita el acceso del usuario al Sistema */
 	public static function activarUsuario($correo,$activar) {
 		require_once 'bd.php';
+		require_once 'utils.php';
+
 		$pdo = BaseDeDatos::conectar();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		if ( $activar ) {
-			$sql = "UPDATE usuario SET estatus='Activo' WHERE correo='$correo'";
+			$sql = "UPDATE usuario SET estatus='" . Utils::$ACTIVO    ."' WHERE correo='$correo'";
 		} else {
-			$sql = "UPDATE usuario SET estatus='Inactivo' WHERE correo='$correo'";
+			$sql = "UPDATE usuario SET estatus='" . INACTIVO . "' WHERE correo='$correo'";
 		}
 		$cons = $pdo->prepare($sql);
 		$cons->execute();
