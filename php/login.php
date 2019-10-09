@@ -14,8 +14,12 @@
   if ($registro) {
     if ($registro['contra'] == $contra) {
       $ok = true;
+      /* Datos del usuario actual */
       $_SESSION['login'] = $clave;
       $_SESSION['admin'] = $registro['administrador'];
+      /* Variables globales del sistema */
+      !defined('_ACTIVO_')    && define('_ACTIVO_',   'Activo');
+      !defined('_NO_ACTIVO_') && define('_NO_ACTIVO_','Inactivo');
     }
   }
   if ($ok) {

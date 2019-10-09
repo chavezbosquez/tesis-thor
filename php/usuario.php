@@ -32,9 +32,9 @@ class Usuario {
 		$pdo = BaseDeDatos::conectar();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		if ( $activar ) {
-			$sql = "UPDATE usuario SET estatus='" . Utils::$ACTIVO    ."' WHERE correo='$correo'";
+			$sql = "UPDATE usuario SET estatus='" . _ACTIVO_    . "' WHERE correo='$correo'";
 		} else {
-			$sql = "UPDATE usuario SET estatus='" . INACTIVO . "' WHERE correo='$correo'";
+			$sql = "UPDATE usuario SET estatus='" . _NO_ACTIVO_ . "' WHERE correo='$correo'";
 		}
 		$cons = $pdo->prepare($sql);
 		$cons->execute();
