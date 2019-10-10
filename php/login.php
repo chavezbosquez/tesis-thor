@@ -9,17 +9,18 @@
   $ok = false;
   require 'bd.php';
   $pdo = BaseDeDatos::conectar();
-  $cons = $pdo->query("SELECT contra,administrador FROM usuario WHERE correo='{$clave}' LIMIT 1",PDO::FETCH_ASSOC);
+  $cons = $pdo->query("SELECT contra,administrador,estatus FROM usuario WHERE correo='{$clave}' LIMIT 1",PDO::FETCH_ASSOC);
   $registro = $cons->fetch();
+  /* Variables globales del sistema */
+  !defined('_ACTIVO_')    && define('_ACTIVO_',   'Activo');
+  !defined('_NO_ACTIVO_') && define('_NO_ACTIVO_','Inactivo');
   if ($registro) {
-    if ($registro['contra'] == $contra) {
+    if ($registro['contra'] == $contra && $registro['estatus'] == _ACTIVO_) {
       $ok = true;
       /* Datos del usuario actual */
       $_SESSION['login'] = $clave;
       $_SESSION['admin'] = $registro['administrador'];
-      /* Variables globales del sistema */
-      !defined('_ACTIVO_')    && define('_ACTIVO_',   'Activo');
-      !defined('_NO_ACTIVO_') && define('_NO_ACTIVO_','Inactivo');
+      
     }
   }
   if ($ok) {
