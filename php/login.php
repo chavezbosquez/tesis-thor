@@ -8,19 +8,16 @@
   $contra = $_POST['contra'];
   $ok = false;
   require 'bd.php';
+  require 'utils.php';
   $pdo = BaseDeDatos::conectar();
   $cons = $pdo->query("SELECT contra,administrador,estatus FROM usuario WHERE correo='{$clave}' LIMIT 1",PDO::FETCH_ASSOC);
   $registro = $cons->fetch();
-  /* Variables globales del sistema */
-  !defined('_ACTIVO_')    && define('_ACTIVO_',   'Activo');
-  !defined('_NO_ACTIVO_') && define('_NO_ACTIVO_','Inactivo');
   if ($registro) {
-    if ($registro['contra'] == $contra && $registro['estatus'] == _ACTIVO_) {
+    if ($registro['contra'] == $contra && $registro['estatus'] == Utils::ACTIVO) {
       $ok = true;
       /* Datos del usuario actual */
       $_SESSION['login'] = $clave;
-      $_SESSION['admin'] = $registro['administrador'];
-      
+      $_SESSION['admin'] = $registro['administrador']; 
     }
   }
   if ($ok) {

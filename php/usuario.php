@@ -28,20 +28,15 @@ class Usuario {
 	public static function activarUsuario($correo,$activar) {
 		require_once 'bd.php';
 		require_once 'utils.php';
-
 		$pdo = BaseDeDatos::conectar();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "UPDATE usuario SET estatus=? WHERE correo=?";
 		$cons = $pdo->prepare($sql);
 		if ( $activar ) {
-			//$sql = "UPDATE usuario SET estatus='" . constant('_ACTIVO_')    . "' WHERE correo='$correo'";
-			$cons->execute( array(_ACTIVO_) );
+			$cons->execute( array(Utils::ACTIVO, $correo) );
 		} else {
-			//$sql = "UPDATE usuario SET estatus='" . constant('_NO_ACTIVO_') . "' WHERE correo='$correo'";
-			$cons->execute( array(constant('_NO_ACTIVO_'),$correo) );
+			$cons->execute( array(Utils::NO_ACTIVO, $correo) );
 		}
-		/*$cons = $pdo->prepare($sql);
-		$cons->execute();*/
 		BaseDeDatos::desconectar();
 		return "OK";
 	}

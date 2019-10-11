@@ -1,5 +1,8 @@
 <?php
 class Utils {
+  /* Constantes globales del sistema */
+  public const ACTIVO = 'Activo';
+  public const NO_ACTIVO = 'Inactivo';
 
 	public function __construct() {
 		exit('Función init no permitida');
