@@ -125,7 +125,7 @@ if ( !defined( 'FM_SESSION_ID')) {
 $cfg = new FM_Config();
 
 // Default language
-$lang = isset($cfg->data['lang']) ? $cfg->data['lang'] : 'en';
+$lang = isset($cfg->data['lang']) ? $cfg->data['lang'] : 'es';
 
 // Show or hide files and folders that starts with a dot
 $show_hidden_files = isset($cfg->data['show_hidden']) ? $cfg->data['show_hidden'] : true;
@@ -2858,7 +2858,7 @@ class FM_Zipper_Tar
         global $root_path, $root_url, $CONFIG;
         $fm_url = $root_url.$_SERVER["PHP_SELF"];
         $this->data = array(
-            'lang' => 'en',
+            'lang' => 'es',
             'error_reporting' => true,
             'show_hidden' => true
         );
