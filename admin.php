@@ -8,6 +8,7 @@
     $tituloPagina = "Administración de THOR";
     include_once "php/header.php";
 
+    require_once 'php/utils.php';
     require_once 'php/usuario.php';
     $listaUsuarios = Usuario::getUsuarios();
 ?>
@@ -43,7 +44,7 @@
           echo "<td class='align-middle'>{$nombreCompleto}</td>";
           $fecha = date("d-m-Y",strtotime($fecha));
           echo "<td class='align-middle text-center'>{$fecha}</td>";
-          if ( strcasecmp($estatus,"Activo") == 0 ) {
+          if ( strcasecmp($estatus,Utils::$ACTIVO) == 0 ) {
             echo "<td class='align-middle text-center'>Sí</td>";
             $activar = false;
             echo "<td class='align-middle text-center'><a href='php/activar-usuario.php?usuario={$correo}&activar={$activar}' class='btn btn-sm btn-danger'>Dar de baja</a></td>";

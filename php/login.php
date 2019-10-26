@@ -13,7 +13,7 @@
   $cons = $pdo->query("SELECT contra,administrador,estatus FROM usuario WHERE correo='{$clave}' LIMIT 1",PDO::FETCH_ASSOC);
   $registro = $cons->fetch();
   if ($registro) {
-    if ($registro['contra'] == $contra && $registro['estatus'] == Utils::ACTIVO) {
+    if ($registro['contra'] == $contra && $registro['estatus'] == Utils::$ACTIVO) {
       $ok = true;
       /* Datos del usuario actual */
       $_SESSION['login'] = $clave;

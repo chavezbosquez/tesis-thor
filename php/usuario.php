@@ -33,9 +33,9 @@ class Usuario {
 		$sql = "UPDATE usuario SET estatus=? WHERE correo=?";
 		$cons = $pdo->prepare($sql);
 		if ( $activar ) {
-			$cons->execute( array(Utils::ACTIVO, $correo) );
+			$cons->execute( array(Utils::$ACTIVO, $correo) );
 		} else {
-			$cons->execute( array(Utils::NO_ACTIVO, $correo) );
+			$cons->execute( array(Utils::$NO_ACTIVO, $correo) );
 		}
 		BaseDeDatos::desconectar();
 		return "OK";
