@@ -264,7 +264,8 @@ class config {
     function __construct(){
         $this->data = array(
             'lang'=>'es',
-            'fm_root'=>'/opt/lampp/htdocs/thor/docs',
+            //'fm_root'=>'/opt/lampp/htdocs/thor/docs',
+            'fm_root'=>'C:\xampp\htdocs\thor\docs',
             'timezone'=>'America/Mexico_City',
             'date_format'=>'d/m/Y H:i',
             'auth_pass'=>md5(''),
