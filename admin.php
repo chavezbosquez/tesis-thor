@@ -66,8 +66,7 @@
   <legend class="w-auto">Operaciones avanzadas</legend>
   <!--<button class="btn btn-info disabled mr-2">Nuevo usuario</button>-->
   <button class="btn btn-success mr-2" id="actualizar">Actualizar THOR</button>
-  <a href="tinyfilemanager/index.php" class="btn btn-dark">Administrador de archivos</a>
-  <!--<a href="php/actualizar.php" class="btn btn-success" id="actualizar">Sincronizar THOR</a>-->
+  <!--<a href="tinyfilemanager/index.php" class="btn btn-dark">Administrador de archivos</a>-->
 </fieldset>
 </main>
 
