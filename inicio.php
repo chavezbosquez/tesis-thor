@@ -60,7 +60,7 @@
         </div>
         <ul class="list-group list-group-flush">
           <li id="li-formatos" class="list-group-item"><a href="formatos.php">Ver formatos</a></li>
-          <li class="list-group-item"><a href="ver-profesores.php">Listado de profesores</a></li>
+          <li class="list-group-item"><a href="ver-profesores.php">Directorio de profesores</a></li>
           <li id="li-profesores" class="list-group-item"><a href="ayuda.php">Ayuda del Sistema THOR</a></li>
         </ul>
       </div>

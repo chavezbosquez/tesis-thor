@@ -1,33 +1,10 @@
-﻿<?php
-  session_start();
+﻿<!-- Encabezado de página -->
+<?php
+  $tituloPagina = "Directorio de profesores";
+  include_once "php/header.php";
 ?>
+<!-- Encabezado de página -->
 
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="Verano de Código 2019">
-  <title>Sistema THOR 2019</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
-    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/estylo.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-</head>
-
-<body role="document">
-  <header>
-    <div class="jumbotron display-4 text-white rounded-0">
-      <div class="container pull-left">
-        <img class="img-fluid" src="img/banner.png">
-      </div>
-    </div>
-  </header>
   <main role="main" class="card container container-fluid body-content rounded p-4">
     <div class="clearfix">
       <h2 class="float-left">
@@ -36,7 +13,7 @@
             <li class="breadcrumb-item">
               <a href="index.php"><i class="fas fa-hammer"></i></a>
             </li>
-            <li class="breadcrumb-item" aria-current="page">Búsqueda de profesores</li>
+            <li class="breadcrumb-item" aria-current="page">Directorio de profesores</li>
           </ol>
         </nav>
       </h2>
