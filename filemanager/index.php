@@ -45,7 +45,7 @@ $upload_ext_filter = array();
 $download_ext_filter = array();
 $cookie_cache_time = 60*60*24*30; // 30 Days
 $fm_color = array();
-$fm_color['Bg'] = "AAAAAA"; // OCB: Valor anterior: EEEEEE
+$fm_color['Bg'] = "F0FFFF"; // OCB: Valor anterior: EEEEEE
 $fm_color['Text'] = "000000";
 $fm_color['Link'] = "0A77F7";
 $fm_color['Entry'] = "FFFFFF";
@@ -1453,7 +1453,6 @@ function html_header($header=""){
         .fm-disk-info span {
             display: inline-block;
             margin: 2px 0;
-            font-weight: 700;
         }
         .table {
             width: 100%;
@@ -1990,7 +1989,7 @@ function frame2(){
     ";
     echo "<table width=\"100%\" height=\"100%\" border=0 cellspacing=0 cellpadding=5>\n";
     // OCB: Panel izquierdo
-    echo "<tr valign=top height=10 bgcolor=\"#DDDDDD\" style=\"border-bottom: 2px solid #eaeaea;\"><td style=\"padding: 6px 6px 1px; 6px;\">";
+    echo "<tr valign=top height=10 bgcolor=\"#FFFFFF\" style=\"border-bottom: 2px solid #eaeaea;\"><td style=\"padding: 6px 6px 1px; 6px;\">";
     echo "<form style=\"display:inline-block;\" action=\"".$fm_path_info["basename"]."\" method=\"post\" target=\"_parent\">";
         $fm_root_opts=array();
         if (strlen($fm_root) == 0) {
@@ -2015,6 +2014,11 @@ function frame2(){
         if (count($fm_root_opts)>1) echo "<select name=drive onchange=\"set_fm_current_root(this.value)\" style=\"float:left; margin:1px 0 5px 0; margin-right:5px; padding:5px;\">".implode("\n",$fm_root_opts)."</select>";
         echo "<button type=\"button\" style=\"margin-bottom: 5px;\" class=\"btn\" onclick=\"refresh_tree()\" value=\"".et('Refresh')."\"><i class=\"fa fa-refresh\"></i> ".et('Refresh')."</button>";
         if ($auth_pass != md5('')) echo "&nbsp;<button type=\"button\" style=\"margin-bottom: 5px;\" class=\"btn \" onclick=\"logout()\" value=\"".et('Leave')."\"><i class=\"fa fa-file-go\"></i> ".et('Leave')."</button>";
+        // OCB: Regresar a THOR
+        /*echo "<button type='button' style='margin-bottom: 5px;' class='btn' 
+              onclick='parent.location=\"../inicio.php\";'
+              value='Regresar a THOR'><i class='fas fa-hammer'></i> Regresar a THOR</button>";*/
+        echo "&nbsp;&nbsp;<a style='color:blue;font-weight:normal;text-decoration:underline' href='#' onclick='parent.location=\"../inicio.php\";'>Regresar a THOR</a>";
     echo "</form>";
     echo "</td></tr>";
     echo "<tr valign=top><td>";
@@ -2973,7 +2977,7 @@ function dir_list_form() {
                 </tr>";*/
                 $out .= "
                 <tr style=\"border-bottom: 2px solid #d4d2d2;\">
-                <td bgcolor=\"#DDDDDD\" colspan=50><nobr>
+                <td bgcolor=\"#FFFFFF\" colspan=50><nobr>
                 <button type=\"button\" class=\"btn\" onclick=\"selectANI(this)\" id=\"ANI0\" value=\"".et('SelAll')."\"><i class=\"fa fa-copy-o\"></i> " . et('SelAll') . "</button>
                 <button type=\"button\" class=\"btn\" onclick=\"test(73)\"><i class=\"fa fa-download\"></i> Descargar ZIP</button>
               ";
@@ -3152,27 +3156,28 @@ function dir_list_form() {
         <tr><td colspan=50 style=\"padding:8px;\"><font color=red>".et('IOError').".<br>".rtrim($fm_current_dir,DIRECTORY_SEPARATOR)."</font></tr>";
     }
     $out .= "
-        <tr style=\"border-top: 2px solid #eaeaea;\">
-        <td bgcolor=\"#DDDDDD\" colspan=50 class=\"fm-disk-info\">
-            <div style=\"float:left;\">
+        <tr style=\"border-top: 10px solid #eaeaea;\">
+        <td bgcolor=\"#FFFFFF\" colspan=50 class=\"fm-disk-info\">
+            <div style=\"float:right;\">
                 <div id=\"total_size_status\" display=\"none\"></div>
                 <div id=\"selection_total_size_status\" display=\"none\"></div>";
                 if ($quota_mb) {
                     $out .= "
                     <span>".et('Partition')." = ".format_size(($quota_mb*1024*1024))." - ".format_size(($quota_mb*1024*1024)-intval(phpfm_get_total_size($fm_current_root)))." ".et('Free')."</span>";
-                } else {
+                }/* else {
                     $out .= "
                     <span>".et('Partition')." = ".format_size(disk_total_space($fm_current_dir))." / ".format_size(disk_free_space($fm_current_dir))." ".et('Free')."</span>";
-                }
-                /*
-                $out .= "
-                    <br /><span>".et('RenderTime').": ".number_format((getmicrotime()-$script_init_time), 3, '.', '')." ".et('Seconds')."</span>";
-                */
-                $out .= "
+                }*/
+                // OCB: Quitar la timezone y la hora.
+                /*$out .= "
             </div>
             <div style=\"float:right\">
                 <span>".date_default_timezone_get()."</span><br />
                 <span>".date($date_format)."</span>
+            </div>
+        </td></tr>
+    </table>";*/
+    $out .= "
             </div>
         </td></tr>
     </table>";
