@@ -26,7 +26,7 @@ $PASSWORD_HASH_ALGORITHM = '';
 // Home directory (multi-user mode supported)
 // Example: $HOME_DIRECTORY = '/tmp';
 //          $HOME_DIRECTORY = array('user1' => '/home/user1', 'user2' => '/home/user2');
-$HOME_DIRECTORY = 'C:\xampp\htdocs\thor\docs';
+$HOME_DIRECTORY = ;'/opt/lampp/htdocs/thor/docs';//'C:\xampp\htdocs\thor\docs';
 
 // Code below is automatically generated from different components
 // For more information see: https://github.com/nickola/web-console
