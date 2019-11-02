@@ -12,7 +12,7 @@ $NO_LOGIN = false;
 // Single-user credentials
 // Example: $USER = 'user'; $PASSWORD = 'password';
 $USER = 'chavez';
-$PASSWORD = '$2y$10$iwyixE.H/VKfZLoC5PwAbecyDhgGiVSIn1wX.mxqnUnFsOIy7BZs.';
+$PASSWORD = '876567bfea8ca6ba9e5d967616d67613';
 
 // Multi-user credentials
 // Example: $ACCOUNTS = array('user1' => 'password1', 'user2' => 'password2');
@@ -710,7 +710,7 @@ class WebConsoleRPCServer extends BaseJsonRpcServer {
 
     // OCB: Hacked
     public function cd($token, $environment, $path) {
-        return array('output' => "Operación cd no soportada");
+        return array('output' => "Operación <cd> no soportada");
         /*$result = $this->initialize($token, $environment);
         if ($result) return $result;
 
