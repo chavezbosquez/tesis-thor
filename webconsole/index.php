@@ -12,7 +12,7 @@ $NO_LOGIN = false;
 // Single-user credentials
 // Example: $USER = 'user'; $PASSWORD = 'password';
 $USER = 'chavez';
-$PASSWORD = 'zevahc';
+$PASSWORD = '$2y$10$iwyixE.H/VKfZLoC5PwAbecyDhgGiVSIn1wX.mxqnUnFsOIy7BZs.';
 
 // Multi-user credentials
 // Example: $ACCOUNTS = array('user1' => 'password1', 'user2' => 'password2');
@@ -21,12 +21,12 @@ $ACCOUNTS = array();
 // Password hash algorithm (password must be hashed)
 // Example: $PASSWORD_HASH_ALGORITHM = 'md5';
 //          $PASSWORD_HASH_ALGORITHM = 'sha256';
-$PASSWORD_HASH_ALGORITHM = '';
+$PASSWORD_HASH_ALGORITHM = 'md5';
 
 // Home directory (multi-user mode supported)
 // Example: $HOME_DIRECTORY = '/tmp';
 //          $HOME_DIRECTORY = array('user1' => '/home/user1', 'user2' => '/home/user2');
-$HOME_DIRECTORY = '/opt/lampp/htdocs/thor/docs';//'C:\xampp\htdocs\thor\docs';
+$HOME_DIRECTORY = '';//'C:\xampp\htdocs\thor\docs';
 
 // Code below is automatically generated from different components
 // For more information see: https://github.com/nickola/web-console
@@ -708,8 +708,10 @@ class WebConsoleRPCServer extends BaseJsonRpcServer {
         return $result;
     }
 
+    // OCB: Hacked
     public function cd($token, $environment, $path) {
-        $result = $this->initialize($token, $environment);
+        return array('output' => "Operación cd no soportada");
+        /*$result = $this->initialize($token, $environment);
         if ($result) return $result;
 
         $path = trim((string) $path);
@@ -722,7 +724,7 @@ class WebConsoleRPCServer extends BaseJsonRpcServer {
             else return array('output' => "cd: ". $path . ": No such directory");
         }
 
-        return array('environment' => $this->get_environment());
+        return array('environment' => $this->get_environment());*/
     }
 
     public function completion($token, $environment, $pattern, $command) {
