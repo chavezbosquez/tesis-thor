@@ -43,12 +43,12 @@
           if ( isset($tesista2) ) {
             echo "<td> class='align-middle'{$tesista2}</td>";
           } else {
-            echo "<td  class='align-middle' class='text-center'>—</td>";
+            echo "<td  class='align-middle text-center'>—</td>";
           }
           $ca = CuerpoAcademico::getCuerpoAcademico($director);
-          echo "<td>{$ca}</td>";
-          echo "<td class='text-center font-weight-bold'>{$estatus}</td>";
-          echo "<td class='text-center table-fit'>";
+          echo "<td class='align-middle'>{$ca}</td>";
+          echo "<td class='align-middle text-center font-weight-bold'>{$estatus}</td>";
+          echo "<td class='align-middle text-center table-fit'>";
           echo "<button class='btn btn-primary' alt='Ver detalles del anteproyecto' onclick='mostrarDetalles(\"{$folio}\",\"Tesis\")'>
                   <!--&nbsp;<i class='fas fa-info'></i>&nbsp;-->
                   <i class='fas fa-info-circle'></i>&nbsp;

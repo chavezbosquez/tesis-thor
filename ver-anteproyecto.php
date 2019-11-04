@@ -61,11 +61,6 @@
           $ca = CuerpoAcademico::getCuerpoAcademico($director);
           echo "<td class='align-middle'>{$ca}</td>";
           echo "<td class='align-middle text-center font-weight-bold'>{$estatus}</td>";
-          /*$mijson = json_encode($registro, JSON_PRETTY_PRINT);
-          $mijson= str_replace('"', "*", $mijson);
-          $mijson= str_replace('{', "+", $mijson);
-            $mijson= str_replace('}', "+", $mijson);
-          echo "<td>{$mijson}</td>";*/
           echo "<td class='align-middle text-center table-fit'>";
           echo "<button class='btn btn-info' alt='Ver detalles del anteproyecto' onclick='mostrarDetalles(\"{$folio}\")'>
                   <!--&nbsp;<i class='fas fa-info'></i>&nbsp;-->
@@ -87,8 +82,6 @@
           echo "<a href='{$fSiguiente}.php?folio={$folio}&sender=ver-anteproyecto&label=Anteproyectos' class='btn btn-info'>
                   <i class='fas fa-edit'></i>&nbsp;
                   Capturar <strong>" . strtoupper($fSiguiente) . "</strong></a>";
-          //echo "<a href='{$fSiguiente}.php?folio={$folio}&sender=ver-anteproyecto&label=Anteproyectos' class='btn btn-info'>
-          //        <i class='fas fa-edit'></i>Bitácora</a>";
           echo "</td>";
           echo "</tr>";
         }
@@ -100,7 +93,7 @@
 </main>
 
 <script>
-  $(document).ready(function(){
+  $(document).ready(function() {
     $("#filtro").on("keyup", function() {
       var value = $(this).val().toLowerCase();
       $("#tabla tr").filter(function() {
