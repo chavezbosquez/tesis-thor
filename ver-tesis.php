@@ -12,7 +12,7 @@
 <!-- Encabezado de página -->
 <?php include_once "php/header2.php"; ?>
 
-<div class="row">
+<div class="row m-1">
   <table class="table table-striped table-bordered table-hover table-condensed table-sm">
     <thead class="bg-dark text-white">
       <tr>
@@ -37,13 +37,13 @@
         foreach ($pdo->query($sql,PDO::FETCH_ASSOC) as $registro) {
           extract($registro);
           echo "<tr>";
-          echo "<td>{$folio}</td>";
-          echo "<td>{$nombre}</td>";
-          echo "<td>{$tesista1}</td>";
+          echo "<td class='align-middle'>{$folio}</td>";
+          echo "<td class='align-middle'>{$nombre}</td>";
+          echo "<td class='align-middle'>{$tesista1}</td>";
           if ( isset($tesista2) ) {
-            echo "<td>{$tesista2}</td>";
+            echo "<td> class='align-middle'{$tesista2}</td>";
           } else {
-            echo "<td class='text-center'>—</td>";
+            echo "<td  class='align-middle' class='text-center'>—</td>";
           }
           $ca = CuerpoAcademico::getCuerpoAcademico($director);
           echo "<td>{$ca}</td>";
