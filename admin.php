@@ -71,6 +71,7 @@
 </main>
 
 <script src="js/dialogos.js"></script>
+<!-- Actualizar THOR desde GitHub vía AJAX -->
 <script>
     $(document).ready(function() {
       $("#actualizar").click(function() {
