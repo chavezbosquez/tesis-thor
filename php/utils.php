@@ -17,17 +17,19 @@ class Utils {
     return $_SESSION['login'];
   }
 
-  /* Devuelve el tipo de usuario actual *
-  public static function getAdmin() {
-    return $_SESSION['admin'];
-  }*/
-
+  /* ¿Es el usuario actual un administrador? */
   public static function isAdmin() {
     return $_SESSION['admin'] == $ADMIN;
   }
 
+  /* ¿Es el usuario actual de solo lectura? */
   public static function isSoloLectura() {
     return $_SESSION['admin'] == $SOLO_LECTURA;
+  }
+
+  /* Usuario con privilegios restringidos */
+  public static function isUsuarioNormal() {
+    return $_SESSION['admin'] == $USUARIO_NORMAL;
   }
 
   /* Devuelve la fecha actual en el formato requerido por MySQL */

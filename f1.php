@@ -252,7 +252,7 @@
       <div class=" row">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
-        <button type="submit" class="btn btn-primary btn-lg btn-block" name="guardar" <?php if (Utils::isSoloLectura()) echo "disabled"; ?>>
+        <button type="submit" class="btn btn-primary btn-lg btn-block" name="guardar" <?= ((Utils::isSoloLectura()) ? "disabled" : "") ?>>
           <i class="fas fa-save">&nbsp;</i>
           Guardar
         </button>

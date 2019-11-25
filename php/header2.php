@@ -23,7 +23,7 @@
    <!-- Usuario actual -->
     <div class="dropdown show float-right mr-2">
       <button class="btn dropdown-toggle text-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Usuario: <?php echo Utils::getUsuario(); ?>
+        Usuario: <?= Utils::getUsuario() ?>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
         <?php if (Utils::isAdmin()) { ?>
