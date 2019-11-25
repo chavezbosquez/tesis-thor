@@ -3,8 +3,7 @@
   if ($_SESSION['login'] == '') {
     header("location: index.php");
   } else {
-    $usuario = $_SESSION['login'];
-    $admin   = $_SESSION['admin'];
+    require_once 'php/utils.php';
     $tituloPagina = "F1 - Nuevo anteproyecto";
     
     include_once "php/header.php";
@@ -253,7 +252,7 @@
       <div class=" row">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
-        <button type="submit" class="btn btn-primary btn-lg btn-block" name="guardar">
+        <button type="submit" class="btn btn-primary btn-lg btn-block" name="guardar" <?php if (Utils::isSoloLectura()) echo "disabled"; ?>>
           <i class="fas fa-save">&nbsp;</i>
           Guardar
         </button>

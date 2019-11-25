@@ -23,10 +23,10 @@
    <!-- Usuario actual -->
     <div class="dropdown show float-right mr-2">
       <button class="btn dropdown-toggle text-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Usuario: <?php echo $usuario; ?>
+        Usuario: <?php echo Utils::getUsuario(); ?>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <?php if ($admin) { ?>
+        <?php if (Utils::isAdmin()) { ?>
           <a class="dropdown-item" href="admin.php">
             <i class="fas fa-cogs"></i>
             Administración de THOR
