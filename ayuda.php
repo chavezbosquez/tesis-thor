@@ -1,11 +1,6 @@
 <?php
   session_start();
   $tituloPagina = "Ayuda";
-  /*if ($_SESSION['login'] == '') {
-    header("location: index.php");
-  } else {*/
-  $usuario = $_SESSION['login'];
-  $admin   = $_SESSION['admin'];
   include_once "php/header.php";
   include_once "php/header2.php";
 ?>
