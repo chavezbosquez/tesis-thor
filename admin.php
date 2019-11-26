@@ -3,10 +3,11 @@
   if ($_SESSION['login'] == '' || $_SESSION['admin'] != 1) {
     header("location: index.php");
   } else {
-    $tituloPagina = "Administración de THOR";
-    include_once "php/header.php";
-
     require_once 'php/utils.php';
+    $tituloPagina = "Administración de THOR";
+    
+    include_once "php/header.php";
+    
     require_once 'php/usuario.php';
     $listaUsuarios = Usuario::getUsuarios();
 ?>

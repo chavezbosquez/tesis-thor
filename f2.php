@@ -6,8 +6,8 @@
     if ( !isset($_GET['folio']) ) {
       header("location: inicio.php");
     }
-    $usuario = $_SESSION['login'];
-    $admin   = $_SESSION['admin'];
+    require_once 'php/utils.php';
+    
     $folio  = $_GET['folio'];
     if ( isset($_GET['sender']) ) {
       $sender = $_GET['sender'] . '.php';
