@@ -1,4 +1,5 @@
 <!-- Menú de navegación global -->
+<?php require_once 'php/utils.php'; ?>
 <main role="main" class="card container container-fluid body-content rounded p-4">
   <div class="clearfix">
     <h2 class="float-left">
@@ -23,10 +24,10 @@
    <!-- Usuario actual -->
     <div class="dropdown show float-right mr-2">
       <button class="btn dropdown-toggle text-danger" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Usuario: <?= Utils::getUsuario() ?>
+        Usuario: <?php echo Utils::getUsuario(); ?>
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <?php if (Utils::isAdmin()) { ?>
+        <?php if (Utils::isAdmin()) {  ?>
           <a class="dropdown-item" href="admin.php">
             <i class="fas fa-cogs"></i>
             Administración de THOR
