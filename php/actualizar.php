@@ -1,5 +1,5 @@
 <?php
-  /* Actualizar THOR desde GitHub */
+  /* Descargar la última versión de THOR desde GitHub */
   error_reporting(E_ALL); 
   try {
     echo shell_exec('C:\Users\operador\Desktop\PortableGit\cmd\git.exe pull origin master');
