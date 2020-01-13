@@ -95,7 +95,8 @@
       <div class="row mt-4">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
-          <button type="submit" class="btn btn-primary btn-block" name="guardar">
+          <button type="submit" class="btn btn-primary btn-block" name="guardar"
+                  <? if (Utils::isSoloLectura()) echo "disabled title='Usuario de solo lectura'"; ?>>
             <i class="fas fa-save">&nbsp;</i>
             Guardar
           </button>
@@ -143,7 +144,7 @@
       <div class="row mt-4">
         <div class="col-sm-3"></div>
         <div class="col-sm-8">
-        <button type="submit" class="btn btn-primary btn-block" name="guardar"
+        <button type="submit" class="btn btn-primary btn-block" name="guardar2"
                 <? if (Utils::isSoloLectura()) echo "disabled title='Usuario de solo lectura'"; ?>>
           <i class="fas fa-save">&nbsp;</i>
           Guardar
