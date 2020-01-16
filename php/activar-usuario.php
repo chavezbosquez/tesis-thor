@@ -1,5 +1,5 @@
 <?php
-  /* Activar o desactivar un usuario */
+  /* Permitir o denegar el acceso a un usuario registrado */
   session_start();
   if ($_SESSION['login'] == '') {
     header("location: index.php");

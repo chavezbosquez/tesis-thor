@@ -1,8 +1,8 @@
 <?php
-  // Gestiona el acceso a THOR. Dos tipos de usuario: 
-  // 0 - Auxiliar
-  // 1 - Administador
-  // 2 - ¿Solo lectura?
+  /* Gestiona el acceso a THOR. Dos tipos de usuario: 
+    0 - Auxiliar
+    1 - Administador
+    2 - ¿Solo lectura? */
   session_start();
   $clave = $_POST['clave'];
   $contra = $_POST['contra'];
